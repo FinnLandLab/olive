@@ -4,6 +4,7 @@ import constants
 import scipy.stats as ss
 import numpy as np
 
+
 def random_gen(trip_list):
     rand_ord = []
 
@@ -44,8 +45,8 @@ for i in range(1, constants.NUM_OF_PARTICIPANTS + 1):
         colour_trip_ord = random_gen(constants.COLOUR_TRIPS)
 
     # Turn the randomly generated orderings into 2 tables
-    df_dots = pd.DataFrame(dot_trip_ord, columns=["d1", "d2", "d3"])
-    df_colours = pd.DataFrame(colour_trip_ord, columns=["c1", "c2", "c3"])
+    df_dots = pd.DataFrame(dot_trip_ord, columns=constants.DOT_COLs)
+    df_colours = pd.DataFrame(colour_trip_ord, columns=constants.COLOUR_COLS)
 
     # Merge the two tables into one.
     df_output = pd.merge(df_dots, df_colours, left_index=True, right_index=True, how='outer')
@@ -53,7 +54,6 @@ for i in range(1, constants.NUM_OF_PARTICIPANTS + 1):
     square_prob_array = ss.bernoulli.rvs(0.1, size=135)
     for j in range(len(square_prob_array) - 1, -1, -1):
         if square_prob_array[j]:
-            print 1
             square = pd.Series(np.nan, index=df_output.columns.values)
             result = df_output.ix[:j]
             result = result.append(square, ignore_index=True)
@@ -63,4 +63,4 @@ for i in range(1, constants.NUM_OF_PARTICIPANTS + 1):
     result['participant'] = i
 
     # Save the table into a CSV file
-    result.to_csv("participant_%d.csv" % 11)
+    result.to_csv('%s/participant_%d.csv' % (constants.PARTICIPANT_PATH, i))
