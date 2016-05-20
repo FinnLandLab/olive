@@ -39,12 +39,12 @@ for participant_path in participants:
         df_trip.reset_index(level=[i[constants.COLOUR_INDEX], i[constants.DOT_INDEX]], inplace=True)
 
         # Flip i[COLOUR_INDEX] & i[DOT_INDEX] to show probability for colours
-        df_trip = df_trip.pivot_table(index=i[constants.COLOUR_INDEX], columns=i[constants.DOT_INDEX],
+        df_trip = df_trip.pivot_table(index=i[constants.DOT_INDEX], columns=i[constants.COLOUR_INDEX],
                                       values=constants.VALUE)
 
         # Provide a better name for index and column
-        # Flip 'colour' and 'number' for showing probability for colours
-        df_trip.index.names, df_trip.columns.names = ['colour'], ['number']
+        # Flip 'index' and 'colour' for showing probability for dots
+        df_trip.index.names, df_trip.columns.names = ['index'], ['colour']
 
         # join the created table with the previous tables.
         output_df = output_df.join(df_trip, how="outer")
