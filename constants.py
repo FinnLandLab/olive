@@ -11,6 +11,7 @@ COLOUR_INDEX = 0
 DOT_INDEX = 1
 VALUE = 'participant'
 SQUARE_PROB = 0.1
+MAX_PROB = 0.6
 
 # PATHS
 PARTICIPANT_PATH = 'participants'
