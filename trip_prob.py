@@ -14,9 +14,6 @@ for participant_path in participants:
     # All values in the participant col is the same. It's fine to get it from any index.
     participant_num = df['participant'].tolist()[0]
 
-    # Drop the first column (index)
-    df.drop(df.columns[0], axis=1, inplace=True)
-
     while not successful:
         # Pairs for grouping the table
         index_and_col_trip = [('c1', 'd1'), ('c2', 'd2'), ('c3', 'd3')]

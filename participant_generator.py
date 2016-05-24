@@ -82,7 +82,7 @@ def generate_trip_ordering_csv(participant_number):
     df_output['participant'] = participant_number
 
     # Save the table into a CSV file
-    df_output.to_csv('%s/participant_%d.csv' % (constants.PARTICIPANT_PATH, participant_number))
+    df_output.to_csv('%s/participant_%d.csv' % (constants.PARTICIPANT_PATH, participant_number), index=False)
 
 
 if __name__ == '__main__':
