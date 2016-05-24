@@ -52,7 +52,17 @@ def generate_trip_ordering_csv(participant_number):
 
     # Turn the randomly generated orderings into 2 tables
     df_dots = pd.DataFrame(dot_trip_ord, columns=constants.DOT_COLS)
+
+    # Add additional row to dots table with empty values
+    offset = pd.Series(np.nan, index=df_dots.columns.values)
+    result = df_dots.ix[:-1]
+    result = result.append(offset, ignore_index=True)
+    result = result.append(df_dots[0:], ignore_index=True)
+    df_dots = result
+
     df_colours = pd.DataFrame(colour_trip_ord, columns=constants.COLOUR_COLS)
+    offset = pd.Series(np.nan, index=df_colours.columns.values)
+    df_colours = df_colours.append(offset, ignore_index=True)
 
     # Merge the two tables into one.
     df_output = pd.merge(df_dots, df_colours, left_index=True, right_index=True, how='outer')
