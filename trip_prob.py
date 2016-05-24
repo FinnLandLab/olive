@@ -1,5 +1,3 @@
-import pandas as pd
-import constants
 import glob
 from participant_generator import *
 
@@ -16,11 +14,10 @@ for participant_path in participants:
 
     while not successful:
         # Pairs for grouping the table
-        index_and_col_trip = [('c1', 'd1'), ('c2', 'd2'), ('c3', 'd3')]
 
         # Go through each colour and dot pair and find all the probability for each and join the tables together into
         # one table.
-        for i in index_and_col_trip:
+        for i in constants.INDEX_AND_COL_TRIP:
             # Group by the current colour and dot pair and count the number of grouped rows
             df_trip = df.groupby([i[constants.COLOUR_INDEX], i[constants.DOT_INDEX]]).count()
 
