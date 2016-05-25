@@ -17,7 +17,7 @@ SQUARE_PROB = 0.1
 MAX_PROB = 0.6
 
 ############################################################
-##                    TRIPLET VALUES                      ##
+###                    TRIPLET VALUES                    ###
 ############################################################
 DOT_TRIPS = [[1, 8, 6], [9, 2, 4], [5, 7, 3]]
 COLOUR_TRIPS = [['Blue', 'Red', 'Green'], ['Yellow', 'Pink', 'Brown'], ['Purple', 'Orange', 'DarkGray']]
@@ -31,7 +31,7 @@ COLOUR_INDEX = 0
 DOT_INDEX = 1
 
 ############################################################
-##                    VISUAL VALUES                       ##
+###                    VISUAL VALUES                     ###
 ############################################################
 DOT_CORD_VERT_OFFSET = 2.5
 DOT_CORD_HORZ_OFFSET = 3
@@ -44,7 +44,10 @@ DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_
             8: (0, DOT_CORD_HORZ_OFFSET), 9: (DOT_CORD_VERT_OFFSET, DOT_CORD_VERT_OFFSET)}
 
 ############################################################
-##                      PATHS                             ##
+###                     PATHS                            ###
 ############################################################
-PARTICIPANT_PATH = 'participants'
-PARTICIPANT_PROBABILITY_PATH = 'participants/probabilities'
+PARTICIPANT_PATH = '../static/participants'
+PARTICIPANT_PROBABILITY_FILE_PATH = '../static/participants/probabilities/participant_%s_probability.csv'
+PARTICIPANT_FILE_PATH = '../static/participants/participant_%s.csv'
+SQUARE_IMAGE_PATH = '../static/images/rainbow_square.png'
+DATA_PATH = '../data'

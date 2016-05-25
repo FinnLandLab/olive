@@ -1,8 +1,10 @@
-import pandas as pd
 import random
-import constants
-import scipy.stats as ss
+
 import numpy as np
+import pandas as pd
+import scipy.stats as ss
+
+import constants
 
 
 def _random_gen(trip_list):
@@ -82,7 +84,7 @@ def generate_trip_ordering_csv(participant_number):
     df_output['participant'] = participant_number
 
     # Save the table into a CSV file
-    df_output.to_csv('%s/participant_%d.csv' % (constants.PARTICIPANT_PATH, participant_number), index=False)
+    df_output.to_csv(constants.PARTICIPANT_FILE_PATH % participant_number, index=False)
 
 
 if __name__ == '__main__':

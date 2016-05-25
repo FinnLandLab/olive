@@ -1,15 +1,14 @@
-from psychopy import visual, core, event, gui, data
-import os, sys
-import constants
+import os
+import sys
 
-# Ensure that relative paths start from the same directory as this script
-_thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemencoding())
-os.chdir(_thisDir)
+from psychopy import visual, core, event, gui, data
+
+import constants
 
 #########################################################################
 #                     Prompt for participant number                     #
 #########################################################################
-expName = 'psychopy'
+expName = 'olive'
 expInfo = {'participant': '', 'session': '001'}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
@@ -24,7 +23,7 @@ win = visual.Window(size=(800, 500), fullscr=True, screen=0, allowGUI=False, all
                     blendMode='avg', useFBO=True,
                     )
 
-filename = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant'], expInfo['date'])
+filename = '%s/%s_%s' % (constants.DATA_PATH, expInfo['participant'], expInfo['date'])
 
 info = {'date': expInfo['date']}
 thisExp = data.ExperimentHandler(name=expName, version='',
@@ -32,7 +31,7 @@ thisExp = data.ExperimentHandler(name=expName, version='',
                                  savePickle=True, saveWideText=True,
                                  dataFileName=filename)
 
-filename = u'participants/participant_%s.csv' % expInfo['participant']
+filename = constants.PARTICIPANT_FILE_PATH % expInfo['participant']
 table = data.TrialHandler(nReps=1, method='sequential',
                           extraInfo=None, trialList=data.importConditions(filename),
                           seed=None, name='dots_and_colours')
@@ -42,7 +41,7 @@ circle_visual = visual.Circle(win, pos=[0, 0], radius=5, edges=64, units='deg', 
 dot_circle_visual = visual.Circle(win, pos=[0, 0], radius=1, edges=64, units='deg', fillColor='black',
                                   lineColor='black')
 
-square_visual = visual.ImageStim(win, pos=[0, 0], image='rainbow_square.png', size=1)
+square_visual = visual.ImageStim(win, pos=[0, 0], image=constants.SQUARE_IMAGE_PATH, size=1)
 routineTimer.add(1)
 for row in table:
     print row
