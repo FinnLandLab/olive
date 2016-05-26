@@ -6,7 +6,7 @@ from psychopy import visual, core, event, gui, data
 import constants
 
 #########################################################################
-#                     Prompt for participant number                     #
+###                   Prompt for participant number                   ###
 #########################################################################
 expName = 'olive'
 expInfo = {'participant': '', 'session': '001'}
@@ -41,50 +41,49 @@ circle_visual = visual.Circle(win, pos=[0, 0], radius=5, edges=64, units='deg', 
 dot_circle_visual = visual.Circle(win, pos=[0, 0], radius=1, edges=64, units='deg', fillColor='black',
                                   lineColor='black')
 
-square_visual = visual.ImageStim(win, pos=[0, 0], image=constants.SQUARE_IMAGE_PATH, size=1)
+square_visual = visual.Rect(win, pos=[0, 0], width=0.5, height=1, lineColor='black')
 routineTimer.add(1)
 for row in table:
     print row
-    for i in range(1, 4):
 
-        dot_cols_empty = all(str(row[i]) == 'nan' for i in constants.DOT_COLS)
-        colour_cols_empty = all(str(row[i]) == 'nan' for i in constants.COLOUR_COLS)
+    dot_cols_empty = str(row[constants.DOT_COL]) == 'nan'
+    colour_cols_empty = str(row[constants.COLOUR_COL]) == 'nan'
 
-        circle_visual.fillColor = row['c%d' % i]
-        circle_visual.lineColor = row['c%d' % i]
+    circle_visual.fillColor = row[constants.COLOUR_COL]
+    circle_visual.lineColor = row[constants.COLOUR_COL]
 
-        if not dot_cols_empty:
-            dot_circle_visual.pos = constants.DOT_CORD[row['d%d' % i]]
+    if not dot_cols_empty:
+        dot_circle_visual.pos = constants.DOT_CORD[row[constants.DOT_COL]]
 
-        if dot_cols_empty and colour_cols_empty:
-            # Square shape should appear
-            print 1
-            square_visual.draw()
-        elif dot_cols_empty:
-            # Only big circle appears (colour)
-            print 2
-            circle_visual.draw()
-        elif colour_cols_empty:
-            # Only small circle appears (dot)
-            print 3
-            dot_circle_visual.draw()
-        else:
-            # Both small and big circles appear (colour and dot)
-            print 4
-            circle_visual.draw()
-            dot_circle_visual.draw()
+    if dot_cols_empty and colour_cols_empty:
+        # Square shape should appear
+        print 1
+        square_visual.draw()
+    elif dot_cols_empty:
+        # Only big circle appears (colour)
+        print 2
+        circle_visual.draw()
+    elif colour_cols_empty:
+        # Only small circle appears (dot)
+        print 3
+        dot_circle_visual.draw()
+    else:
+        # Both small and big circles appear (colour and dot)
+        print 4
+        circle_visual.draw()
+        dot_circle_visual.draw()
 
-        routineTimer.add(constants.STIM_DELAY)
-        win.flip()
-        while routineTimer.getTime() > 0:
-            if event.getKeys(keyList=['esc', 'escape']):
-                core.quit()
+    routineTimer.add(constants.STIM_DELAY)
+    win.flip()
+    while routineTimer.getTime() > 0:
+        if event.getKeys(keyList=['esc', 'escape']):
+            core.quit()
 
-        routineTimer.add(0.2)
-        win.flip()
-        while routineTimer.getTime() > 0:
-            if event.getKeys(keyList=['esc', 'escape']):
-                core.quit()
+    routineTimer.add(0.2)
+    win.flip()
+    while routineTimer.getTime() > 0:
+        if event.getKeys(keyList=['esc', 'escape']):
+            core.quit()
 
     thisExp.nextEntry()
 

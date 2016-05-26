@@ -5,7 +5,7 @@ NUM_RAND_ORD = 45
 NUM_OF_PARTICIPANTS = 10
 
 # Delay between each Trial
-STIM_DELAY = 0.4  # seconds
+STIM_DELAY = 0.6  # seconds
 
 # Used when wanting to find number of rows in a DataFrame
 VALUE = 'participant'
@@ -21,9 +21,9 @@ MAX_PROB = 0.6
 ############################################################
 DOT_TRIPS = [[1, 8, 6], [9, 2, 4], [5, 7, 3]]
 COLOUR_TRIPS = [['Blue', 'Red', 'Green'], ['Yellow', 'Pink', 'Brown'], ['Purple', 'Orange', 'DarkGray']]
-DOT_COLS = ['d1', 'd2', 'd3']
-COLOUR_COLS = ['c1', 'c2', 'c3']
-INDEX_AND_COL_TRIP = [('c1', 'd1'), ('c2', 'd2'), ('c3', 'd3')]
+DOT_COL = 'dot_values'
+COLOUR_COL = 'colour_values'
+INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
 
 # Index of colour in 'INDEX_AND_COL_TRIP' array
 COLOUR_INDEX = 0
@@ -49,5 +49,4 @@ DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_
 PARTICIPANT_PATH = '../static/participants'
 PARTICIPANT_PROBABILITY_FILE_PATH = '../static/participants/probabilities/participant_%s_probability.csv'
 PARTICIPANT_FILE_PATH = '../static/participants/participant_%s.csv'
-SQUARE_IMAGE_PATH = '../static/images/rainbow_square.png'
 DATA_PATH = '../data'
