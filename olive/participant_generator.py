@@ -7,40 +7,43 @@ import scipy.stats as ss
 import constants
 
 
-def _random_gen(trip_list):
+def _random_gen(triplet):
     """
     Generate a random ordering of the given list repeated constants.NUM_RAND_ORD times.
     No item in the random ordering can be adjacent to itself.
-    :param trip_list: The list to be repeated and randomized
+    :param triplet: The list to be repeated and randomized
     :return: trip_list repeated constants.NUM_RAND_ORD times and randomized.
     """
-    rand_ord = []
+    trip_list = []
 
     # Create all the items that need to be randomized.
     for x in range(constants.NUM_RAND_ORD):
-        rand_ord += trip_list
+        trip_list += triplet
 
-    index = random.randint(0, len(rand_ord) - 1)
-    dot_ordering = [rand_ord.pop(index)]
+    index = random.randint(0, len(trip_list) - 1)
+    rand_trip_ord = [trip_list.pop(index)]
 
     # Pick a random item and try to add it to the random ordering list
     # The item randomly generated cannot be the same as the last one added to the list
-    while rand_ord:
-        index = random.randint(0, len(rand_ord) - 1)
+    while trip_list:
+        index = random.randint(0, len(trip_list) - 1)
 
         # Only add the randomly generated number
-        if dot_ordering[-1] != rand_ord[index]:
-            dot_ordering.append(rand_ord.pop(index))
+        if rand_trip_ord[-1] != trip_list[index]:
+            rand_trip_ord.append(trip_list.pop(index))
         else:
 
             # If a random ordering that satisfies the restriction is not possible given the remaining items, recall the
             # function and try again until an ordering can be generated.
-            temp = rand_ord[:]
-            temp = [x for x in temp if x != dot_ordering[-1]]
+            temp = trip_list[:]
+            temp = [x for x in temp if x != rand_trip_ord[-1]]
             if not temp:
-                return _random_gen(trip_list)
+                return _random_gen(triplet)
 
-    return dot_ordering
+    rand_ord = []
+    for trip in rand_trip_ord:
+        rand_ord += trip
+    return rand_ord
 
 
 def generate_trip_ordering_csv(participant_number):
@@ -53,16 +56,18 @@ def generate_trip_ordering_csv(participant_number):
     colour_trip_ord = _random_gen(constants.COLOUR_TRIPS)
 
     # Turn the randomly generated orderings into 2 tables
-    df_dots = pd.DataFrame(dot_trip_ord, columns=constants.DOT_COLS)
+    df_dots = pd.DataFrame(dot_trip_ord, columns=["dot_values"])
 
     # Add additional row to dots table with empty values
-    offset = pd.Series(np.nan, index=df_dots.columns.values)
     result = df_dots.ix[:-1]
+
+    offset = pd.Series(np.nan, index=df_dots.columns.values)
     result = result.append(offset, ignore_index=True)
     result = result.append(df_dots[0:], ignore_index=True)
     df_dots = result
+    print df_dots
 
-    df_colours = pd.DataFrame(colour_trip_ord, columns=constants.COLOUR_COLS)
+    df_colours = pd.DataFrame(colour_trip_ord, columns=["colour_values"])
     offset = pd.Series(np.nan, index=df_colours.columns.values)
     df_colours = df_colours.append(offset, ignore_index=True)
 
