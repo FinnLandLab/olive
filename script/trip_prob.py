@@ -1,6 +1,7 @@
 import glob
-
-from participant_generator import *
+import pandas as pd
+import olive.Constants as constants
+from participant_generator import generate_trip_ordering_csv
 
 participants = glob.glob('%s/*.csv' % constants.PARTICIPANT_PATH)
 

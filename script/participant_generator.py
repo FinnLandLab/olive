@@ -1,10 +1,8 @@
 import random
-
 import numpy as np
 import pandas as pd
 import scipy.stats as ss
-
-import constants
+import olive.Constants as constants
 
 
 def _random_gen(triplet):
