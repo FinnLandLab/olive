@@ -37,6 +37,7 @@ DATA_OUTPUT_RESP_COL = 'response_time'
 ###                      KEYBOARD KEYS                   ###
 ############################################################
 ESCAPE_KEYS = ['esc', 'escape']
+SPACE_KEYS = ['space']
 CIRCLE_KEYS = ['x', 'X']
 SQUARE_KEYS = ['N', 'n']
 

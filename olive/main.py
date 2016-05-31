@@ -1,6 +1,10 @@
 from DataHandlers import *
 from Graphics import *
+from Instructions import *
 from psychopy import core, event
+
+load_instructions(practice_instructions)
+load_instructions(main_instructions)
 
 routine_timer = core.CountdownTimer()
 response_timer = core.Clock()
@@ -59,9 +63,12 @@ for row in table:
     while routine_timer.getTime() > 0:
         if event.getKeys(keyList=Constants.ESCAPE_KEYS):
             core.quit()
+
     table.addData(Constants.DATA_OUTPUT_COL, response)
     table.addData(Constants.DATA_OUTPUT_RESP_COL, response_time)
 
     thisExp.nextEntry()
+
+load_instructions(test_instructions)
 
 core.quit()
