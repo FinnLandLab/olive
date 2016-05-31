@@ -4,9 +4,6 @@ NUM_RAND_ORD = 45
 # Number of participants (used to creating participant and probability CSV files)
 NUM_OF_PARTICIPANTS = 10
 
-# Delay between each Trial
-STIM_DELAY = 0.6  # seconds
-
 # Used when wanting to find number of rows in a DataFrame
 VALUE = 'participant'
 
@@ -31,10 +28,44 @@ COLOUR_INDEX = 0
 DOT_INDEX = 1
 
 ############################################################
+###                 DATA OUTPUT COLUMNS                  ###
+############################################################
+DATA_OUTPUT_COL = 'response'
+DATA_OUTPUT_RESP_COL = 'response_time'
+
+############################################################
+###                      KEYBOARD KEYS                   ###
+############################################################
+ESCAPE_KEYS = ['esc', 'escape']
+CIRCLE_KEYS = ['x', 'X']
+SQUARE_KEYS = ['N', 'n']
+
+############################################################
+###                 DATA OUTPUT COLUMNS                  ###
+############################################################
+DISPLAY_VISUAL_TIME = 0.6  # Seconds
+NO_VISUAL_TIME = 0.2  # Seconds
+
+############################################################
 ###                    VISUAL VALUES                     ###
 ############################################################
+# Window
+WIN_SIZE = (1000, 500)  # (1920, 1080)
+WIN_FULL_SCREEN = False  # True
+
+# Shapes
 DOT_CORD_VERT_OFFSET = 2.5
 DOT_CORD_HORZ_OFFSET = 3
+CIRCLE_RADIUS = 5
+CIRCLE_EDGE = 66
+DOT_RADIUS = 1
+DOT_EDGE = 66
+DOT_FILL_COL = 'black'
+DOT_LINE_COL = 'black'
+SQUARE_WIDTH = 0.5
+SQUARE_HEIGHT = 1
+SQUARE_LINE_COL = 'black'
+CENTER_CORD = [0, 0]
 
 # Dot coordinates for positioning
 DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_HORZ_OFFSET),

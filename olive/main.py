@@ -2,11 +2,14 @@ from DataHandlers import *
 from Graphics import *
 from psychopy import core, event
 
-routineTimer = core.CountdownTimer()
+routine_timer = core.CountdownTimer()
+response_timer = core.Clock()
 
-routineTimer.add(1)
 for row in table:
-    print row
+    response = ""
+    response_time = ""
+
+    response_timer.reset()
 
     dot_cols_empty = str(row[Constants.DOT_COL]) == 'nan'
     colour_cols_empty = str(row[Constants.COLOUR_COL]) == 'nan'
@@ -35,17 +38,29 @@ for row in table:
         circle_visual.draw()
         dot_circle_visual.draw()
 
-    routineTimer.add(Constants.STIM_DELAY)
+    routine_timer.add(Constants.DISPLAY_VISUAL_TIME)
     win.flip()
-    while routineTimer.getTime() > 0:
-        if event.getKeys(keyList=['esc', 'escape']):
-            core.quit()
 
-    routineTimer.add(0.2)
-    win.flip()
-    while routineTimer.getTime() > 0:
+    # Display visuals
+    while routine_timer.getTime() > 0:
         if event.getKeys(keyList=['esc', 'escape']):
             core.quit()
+        elif not response and event.getKeys(keyList=Constants.CIRCLE_KEYS):
+            response = 1
+            response_time = response_timer.getTime()
+        elif not response and event.getKeys(keyList=Constants.SQUARE_KEYS):
+            response = 0
+            response_time = response_timer.getTime()
+
+    win.flip()
+
+    # Remove visuals
+    routine_timer.add(Constants.NO_VISUAL_TIME)
+    while routine_timer.getTime() > 0:
+        if event.getKeys(keyList=Constants.ESCAPE_KEYS):
+            core.quit()
+    table.addData(Constants.DATA_OUTPUT_COL, response)
+    table.addData(Constants.DATA_OUTPUT_RESP_COL, response_time)
 
     thisExp.nextEntry()
 
