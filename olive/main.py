@@ -47,13 +47,13 @@ for row in table:
 
     # Display visuals
     while routine_timer.getTime() > 0:
-        if event.getKeys(keyList=['esc', 'escape']):
+        if event.getKeys(keyList=Constants.ESCAPE_KEYS):
             core.quit()
         elif not response and event.getKeys(keyList=Constants.CIRCLE_KEYS):
-            response = 1
+            response = Constants.CIRCLE_KEY
             response_time = response_timer.getTime()
         elif not response and event.getKeys(keyList=Constants.SQUARE_KEYS):
-            response = 0
+            response = Constants.SQUARE_KEY
             response_time = response_timer.getTime()
 
     win.flip()
