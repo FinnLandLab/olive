@@ -17,10 +17,7 @@ MAX_PROB = 0.6
 ###                    TRIPLET VALUES                    ###
 ############################################################
 DOT_TRIPS = [[1, 8, 6], [9, 2, 4], [5, 7, 3]]
-COLOUR_TRIPS = [['Blue', 'Red', 'Green'], ['Yellow', 'Pink', 'Brown'], ['Purple', 'Orange', 'DarkGray']]
-DOT_COL = 'dot_values'
-COLOUR_COL = 'colour_values'
-INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
+COLOUR_TRIPS = [['Blue', 'Red', 'Green'], ['Yellow', 'LightPink', 'Brown'], ['Purple', 'Orange', 'DarkGray']]
 
 # Index of colour in 'INDEX_AND_COL_TRIP' array
 COLOUR_INDEX = 0
@@ -32,6 +29,9 @@ DOT_INDEX = 1
 ############################################################
 DATA_OUTPUT_COL = 'response'
 DATA_OUTPUT_RESP_COL = 'response_time'
+DOT_COL = 'dot_values'
+COLOUR_COL = 'colour_values'
+INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
 
 ############################################################
 ###                      KEYBOARD KEYS                   ###
@@ -54,20 +54,20 @@ NO_VISUAL_TIME = 0.2  # Seconds
 ############################################################
 # Window
 WIN_SIZE = (1000, 500)  # (1920, 1080)
-WIN_FULL_SCREEN = False  # True
+WIN_FULL_SCREEN = True  # True
 
 # Shapes
 DOT_CORD_VERT_OFFSET = 2.5
 DOT_CORD_HORZ_OFFSET = 3
+SHAPE_EDGE = 66
 CIRCLE_RADIUS = 5
-CIRCLE_EDGE = 66
 DOT_RADIUS = 1
-DOT_EDGE = 66
 DOT_FILL_COL = 'black'
 DOT_LINE_COL = 'black'
-SQUARE_WIDTH = 0.5
-SQUARE_HEIGHT = 1
-SQUARE_LINE_COL = 'black'
+SQUARE_WIDTH = 0.4
+SQUARE_HEIGHT = 0.8
+SQUARE_LINE_COL = 'white'
+SQUARE_FILL_COL = 'white'
 CENTER_CORD = [0, 0]
 
 # Dot coordinates for positioning
