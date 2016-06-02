@@ -80,7 +80,7 @@ DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_
 ############################################################
 ###                     PATHS                            ###
 ############################################################
-PARTICIPANT_PATH = '../static/participants'
-PARTICIPANT_PROBABILITY_FILE_PATH = '../static/participants/probabilities/participant_%s_probability.csv'
-PARTICIPANT_FILE_PATH = '../static/participants/participant_%s.csv'
+PARTICIPANT_PATH = '../participants'
+PARTICIPANT_PROBABILITY_FILE_PATH = '../participants/probabilities/participant_%s_probability.csv'
+PARTICIPANT_FILE_PATH = '../participants/participant_%s.csv'
 DATA_PATH = '../data'
