@@ -2,7 +2,7 @@ import random
 import numpy as np
 import pandas as pd
 import scipy.stats as ss
-import olive.Constants as constants
+import olives.Constants as Constants
 
 
 def _random_gen(triplet):
@@ -15,7 +15,7 @@ def _random_gen(triplet):
     trip_list = []
 
     # Create all the items that need to be randomized.
-    for x in range(constants.NUM_RAND_ORD):
+    for x in range(Constants.NUM_RAND_ORD):
         trip_list += triplet
 
     index = random.randint(0, len(trip_list) - 1)
@@ -50,8 +50,8 @@ def generate_trip_ordering_csv(participant_number):
     Allow for an empty row to appear for each row with a probability of constants.SQUARE_PROB.
     :param participant_number: Participant Number
     """
-    dot_trip_ord = _random_gen(constants.DOT_TRIPS)
-    colour_trip_ord = _random_gen(constants.COLOUR_TRIPS)
+    dot_trip_ord = _random_gen(Constants.DOT_TRIPS)
+    colour_trip_ord = _random_gen(Constants.COLOUR_TRIPS)
 
     # Turn the randomly generated orderings into 2 tables
     df_dots = pd.DataFrame(dot_trip_ord, columns=["dot_values"])
@@ -73,7 +73,7 @@ def generate_trip_ordering_csv(participant_number):
     df_output = pd.merge(df_dots, df_colours, left_index=True, right_index=True, how='outer')
 
     # Insert an additional empty row in each row with the probability of the square appearing.
-    square_prob_array = ss.bernoulli.rvs(constants.SQUARE_PROB, size=len(df_output.index))
+    square_prob_array = ss.bernoulli.rvs(Constants.SQUARE_PROB, size=len(df_output.index))
     for j in range(len(square_prob_array) - 1, -1, -1):
         # If it should appear, place an additional empty row in the given index
         if square_prob_array[j]:
@@ -87,9 +87,9 @@ def generate_trip_ordering_csv(participant_number):
     df_output['participant'] = participant_number
 
     # Save the table into a CSV file
-    df_output.to_csv(constants.PARTICIPANT_FILE_PATH % participant_number, index=False)
+    df_output.to_csv(Constants.PARTICIPANT_FILE_PATH % participant_number, index=False)
 
 
 if __name__ == '__main__':
-    for i in range(1, constants.NUM_OF_PARTICIPANTS + 1):
+    for i in range(1, Constants.NUM_OF_PARTICIPANTS + 1):
         generate_trip_ordering_csv(i)

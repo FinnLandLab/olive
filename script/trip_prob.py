@@ -1,9 +1,9 @@
 import glob
 import pandas as pd
-import olive.Constants as constants
+import olives.Constants as Constants
 from participant_generator import generate_trip_ordering_csv
 
-participants = glob.glob('%s/*.csv' % constants.PARTICIPANT_PATH)
+participants = glob.glob('%s/*.csv' % Constants.PARTICIPANT_PATH)
 
 for participant_path in participants:
     successful = False
@@ -18,24 +18,24 @@ for participant_path in participants:
         # Pairs for grouping the table
 
         # Group by the current colour and dot pair and count the number of grouped rows
-        df_trip = df.groupby([constants.COLOUR_COL, constants.DOT_COL]).count()
+        df_trip = df.groupby([Constants.COLOUR_COL, Constants.DOT_COL]).count()
 
         # Remove all unnecessary columns and only keep one column which contains the number of grouped rows
-        df_trip = df_trip[constants.VALUE]
+        df_trip = df_trip[Constants.VALUE]
 
         # Convert series into DataFrame
         df_trip = df_trip.to_frame()
 
         # Divide the rows that represent number of grouped rows by the number of random orders.
         # This will give the probability for colour/dot appearing
-        df_trip[constants.VALUE] /= constants.NUM_RAND_ORD
+        df_trip[Constants.VALUE] /= Constants.NUM_RAND_ORD
 
         # Convert the index columns into normal columns (Required for creating pivot table).
-        df_trip.reset_index(level=[constants.COLOUR_COL, constants.DOT_COL], inplace=True)
+        df_trip.reset_index(level=[Constants.COLOUR_COL, Constants.DOT_COL], inplace=True)
 
         # Flip i[constants.DOT_INDEX] & i[constants.COLOUR_INDEX] to show probability for colours
-        df_trip = df_trip.pivot_table(index=constants.DOT_COL, columns=constants.COLOUR_COL,
-                                      values=constants.VALUE)
+        df_trip = df_trip.pivot_table(index=Constants.DOT_COL, columns=Constants.COLOUR_COL,
+                                      values=Constants.VALUE)
 
         # Provide a better name for index and column
         # Flip 'index' and 'colour' for showing probability for dots
@@ -50,7 +50,7 @@ for participant_path in participants:
         # Generate new participant file and recalculate probability if there exists a cell in the probability table
         # that is greater than the maximum allowed probability.
         temp_df = output_df
-        if len(temp_df[(temp_df > constants.MAX_PROB).any(axis=1)].index) == 0:
+        if len(temp_df[(temp_df > Constants.MAX_PROB).any(axis=1)].index) == 0:
             successful = True
         else:
             generate_trip_ordering_csv(participant_num)
@@ -64,4 +64,4 @@ for participant_path in participants:
 
     # Save output to CSV
     output_df.to_csv(
-        constants.PARTICIPANT_PROBABILITY_FILE_PATH % participant_num)
+        Constants.PARTICIPANT_PROBABILITY_FILE_PATH % participant_num)

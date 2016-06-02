@@ -2,7 +2,7 @@ from psychopy import data, core, gui
 import Constants
 
 # Prompt for participant number
-expName = 'olive'
+expName = 'olives'
 expInfo = {'participant': '', 'session': '001'}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
