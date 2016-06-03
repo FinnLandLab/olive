@@ -1,9 +1,11 @@
 from DataHandlers import *
+from practice import *
 from Graphics import *
 from Instructions import *
 from psychopy import core, event
 
-load_instructions(practice_instructions)
+display_practice()
+
 load_instructions(main_instructions)
 
 routine_timer = core.CountdownTimer()

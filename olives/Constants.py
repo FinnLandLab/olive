@@ -40,6 +40,7 @@ ESCAPE_KEYS = ['esc', 'escape']
 SPACE_KEYS = ['space']
 CIRCLE_KEYS = ['x', 'X']
 SQUARE_KEYS = ['N', 'n']
+PRACTICE_RESP_KEYS = ['N', 'n', 'X', 'x']
 CIRCLE_KEY = 'x'
 SQUARE_KEY = 'n'
 

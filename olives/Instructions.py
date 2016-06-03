@@ -13,3 +13,7 @@ def load_instructions(instructions):
             core.quit()
         elif event.getKeys(keyList=Constants.SPACE_KEYS):
             return
+
+
+if __name__ == '__main__':
+    pass
