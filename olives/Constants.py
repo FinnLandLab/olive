@@ -37,6 +37,7 @@ INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
 ###                      KEYBOARD KEYS                   ###
 ############################################################
 ESCAPE_KEYS = ['esc', 'escape']
+SKIP_KEYS = ['tab']
 SPACE_KEYS = ['space']
 CIRCLE_KEYS = ['x', 'X']
 SQUARE_KEYS = ['N', 'n']
@@ -60,6 +61,8 @@ WIN_FULL_SCREEN = True  # True
 # Shapes
 DOT_CORD_VERT_OFFSET = 2.5
 DOT_CORD_HORZ_OFFSET = 3
+TEST_STIM_SHIFT = 10
+
 SHAPE_EDGE = 66
 CIRCLE_RADIUS = 5
 DOT_RADIUS = 1
@@ -78,6 +81,26 @@ DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_
             7: (-DOT_CORD_VERT_OFFSET, DOT_CORD_VERT_OFFSET),
             8: (0, DOT_CORD_HORZ_OFFSET), 9: (DOT_CORD_VERT_OFFSET, DOT_CORD_VERT_OFFSET)}
 
+TEST_LEFT_DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET - TEST_STIM_SHIFT, -DOT_CORD_VERT_OFFSET),
+                      2: (- TEST_STIM_SHIFT, -DOT_CORD_HORZ_OFFSET),
+                      3: (DOT_CORD_VERT_OFFSET - TEST_STIM_SHIFT, -DOT_CORD_VERT_OFFSET),
+                      4: (-DOT_CORD_HORZ_OFFSET - TEST_STIM_SHIFT, 0),
+                      5: (- TEST_STIM_SHIFT, 0),
+                      6: (DOT_CORD_HORZ_OFFSET - TEST_STIM_SHIFT, 0),
+                      7: (-DOT_CORD_VERT_OFFSET - TEST_STIM_SHIFT, DOT_CORD_VERT_OFFSET),
+                      8: (- TEST_STIM_SHIFT, DOT_CORD_HORZ_OFFSET),
+                      9: (DOT_CORD_VERT_OFFSET - TEST_STIM_SHIFT, DOT_CORD_VERT_OFFSET)}
+
+TEST_RIGHT_DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET + TEST_STIM_SHIFT, -DOT_CORD_VERT_OFFSET),
+                       2: (TEST_STIM_SHIFT, -DOT_CORD_HORZ_OFFSET),
+                       3: (DOT_CORD_VERT_OFFSET + TEST_STIM_SHIFT, -DOT_CORD_VERT_OFFSET),
+                       4: (-DOT_CORD_HORZ_OFFSET + TEST_STIM_SHIFT, 0),
+                       5: (TEST_STIM_SHIFT, 0),
+                       6: (DOT_CORD_HORZ_OFFSET + TEST_STIM_SHIFT, 0),
+                       7: (-DOT_CORD_VERT_OFFSET + TEST_STIM_SHIFT, DOT_CORD_VERT_OFFSET),
+                       8: (+ TEST_STIM_SHIFT, DOT_CORD_HORZ_OFFSET),
+                       9: (DOT_CORD_VERT_OFFSET + TEST_STIM_SHIFT, DOT_CORD_VERT_OFFSET)}
+
 ############################################################
 ###                     PATHS                            ###
 ############################################################
@@ -85,3 +108,4 @@ PARTICIPANT_PATH = '../participants'
 PARTICIPANT_PROBABILITY_FILE_PATH = '../participants/probabilities/participant_%s_probability.csv'
 PARTICIPANT_FILE_PATH = '../participants/participant_%s.csv'
 DATA_PATH = '../data'
+DOTS_TEST_FILE_PATH = '../dots_test_items.csv'

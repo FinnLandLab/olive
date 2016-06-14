@@ -10,19 +10,25 @@ expInfo['expName'] = expName
 if not dlg.OK:
     core.quit()  # user pressed cancel
 
-filename = '%s/%s_%s' % (Constants.DATA_PATH, expInfo['participant'], expInfo['date'])
+participant_filename = '%s/%s_%s' % (Constants.DATA_PATH, expInfo['participant'], expInfo['date'])
+dots_test_filename = Constants.DOTS_TEST_FILE_PATH
+
 info = {'date': expInfo['date']}
 
 thisExp = data.ExperimentHandler(name=expName, version='',
                                  extraInfo=info, runtimeInfo=None,
                                  savePickle=True, saveWideText=True,
-                                 dataFileName=filename)
+                                 dataFileName=participant_filename)
 
 # Get participant file
-filename = Constants.PARTICIPANT_FILE_PATH % expInfo['participant']
-table = data.TrialHandler(nReps=1, method='sequential',
-                          extraInfo=None, trialList=data.importConditions(filename),
-                          seed=None, name='dots_and_colours')
+participant_filename = Constants.PARTICIPANT_FILE_PATH % expInfo['participant']
+participant_table = data.TrialHandler(nReps=1, method='sequential',
+                                      extraInfo=None, trialList=data.importConditions(participant_filename),
+                                      seed=None, name='')
+
+dots_test_table = data.TrialHandler(nReps=1, method='sequential',
+                                    extraInfo=None, trialList=data.importConditions(dots_test_filename),
+                                    seed=None, name='')
 
 # Add participant file to experiment
-thisExp.addLoop(table)
+thisExp.addLoop(participant_table)

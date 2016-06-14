@@ -1,17 +1,19 @@
 from DataHandlers import *
-from practice import *
+from Practice import *
+from Test import *
 from Graphics import *
 from Instructions import *
 from psychopy import core, event
 
+load_instructions(practice_instructions)
 display_practice()
 
 load_instructions(main_instructions)
 
 routine_timer = core.CountdownTimer()
 response_timer = core.Clock()
-
-for row in table:
+skip = False
+for row in participant_table:
     response = ""
     response_time = ""
 
@@ -51,6 +53,8 @@ for row in table:
     while routine_timer.getTime() > 0:
         if event.getKeys(keyList=Constants.ESCAPE_KEYS):
             core.quit()
+        elif event.getKeys(keyList=Constants.SKIP_KEYS):
+            skip = True
         elif not response and event.getKeys(keyList=Constants.CIRCLE_KEYS):
             response = Constants.CIRCLE_KEY
             response_time = response_timer.getTime()
@@ -60,17 +64,21 @@ for row in table:
 
     win.flip()
 
+    if skip:
+        break
+
     # Remove visuals
     routine_timer.add(Constants.NO_VISUAL_TIME)
     while routine_timer.getTime() > 0:
         if event.getKeys(keyList=Constants.ESCAPE_KEYS):
             core.quit()
 
-    table.addData(Constants.DATA_OUTPUT_COL, response)
-    table.addData(Constants.DATA_OUTPUT_RESP_COL, response_time)
+    participant_table.addData(Constants.DATA_OUTPUT_COL, response)
+    participant_table.addData(Constants.DATA_OUTPUT_RESP_COL, response_time)
 
     thisExp.nextEntry()
 
 load_instructions(test_instructions)
+display_test(dots_test_table)
 
 core.quit()

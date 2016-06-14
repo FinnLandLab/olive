@@ -4,26 +4,31 @@ import Constants
 import time
 
 
-def display_practice():
-    left = [['A', 'B', 'C'], ['Z', 'X', 'Y']]
-    right = [['B', 'C', 'A'], ['X', 'Y', 'Z']]
+def display_test(data_handler):
+    left = [['stim1_dots1', 'stim1_dots2', 'stim1_dots3'], ['stim1_color1', 'stim1_color2', 'stim1_color3']]
+    right = [['stim2_dots1', 'stim2_dots2', 'stim2_dots3'], ['stim2_color1', 'stim2_color2', 'stim2_color3']]
 
-    # num of trials in left must be equal to num of trials in right.
-    if len(left) != len(right):
-        return
+    test_stim = [left, right]
+    test_stim_pos = [[Constants.TEST_LEFT_DOT_CORD, [-Constants.TEST_STIM_SHIFT, 0]],
+                     [Constants.TEST_RIGHT_DOT_CORD, [Constants.TEST_STIM_SHIFT, 0]]]
+    test_dict = {'colour': 1, 'dot': 0}
 
-    num_of_practice_trials = 2
-    training_stim_val = [training_left_stim, training_right_stim]
-    training_stim = [left, right]
     routine_timer = core.CountdownTimer()
 
-    for trial in range(num_of_practice_trials):  # 2 practices
+    for row in data_handler:  # 2 practices
         for i in range(2):  # Left stim then right stim
             for stim in range(3):  # Go through each triplet
                 routine_timer.reset()
                 routine_timer.add(Constants.DISPLAY_VISUAL_TIME)
-                training_stim_val[i].setText(training_stim[i][trial][stim])
-                training_stim_val[i].draw()
+
+                circle_visual.fillColor = row[test_stim[i][test_dict['colour']][stim]]
+                circle_visual.lineColor = row[test_stim[i][test_dict['colour']][stim]]
+                dot_circle_visual.pos = test_stim_pos[i][test_dict['dot']][row[test_stim[i][test_dict['dot']][stim]]]
+                circle_visual.pos = test_stim_pos[i][test_dict['colour']]
+
+                circle_visual.draw()
+                dot_circle_visual.draw()
+
                 win.flip()
                 while routine_timer.getTime() > 0:
                     if event.getKeys(keyList=Constants.ESCAPE_KEYS):
@@ -53,4 +58,6 @@ def display_practice():
 
 
 if __name__ == '__main__':
-    display_practice()
+    from DataHandlers import *
+
+    display_test(dots_test_table)
