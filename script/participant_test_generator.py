@@ -5,7 +5,7 @@ import olives.Constants as Constants
 import glob
 import os
 
-# Find all participant folders (participant folders are labeled as the participant numbera)
+# Find all participant folders (participant folders are labeled as the participant number)
 participants = glob.glob('%s/[0-9]*/' % Constants.PARTICIPANT_PATH)
 
 # Read the Test file that contains all combinations.
