@@ -54,10 +54,10 @@ def display_test(data_handler):
             elif event.getKeys(keyList=Constants.PRACTICE_RESP_KEYS):
                 break
         win.flip()
-        time.sleep(Constants.NO_VISUAL_TIME)
+        time.sleep(1)
 
 
 if __name__ == '__main__':
     from DataHandlers import *
 
-    display_test(dots_test_table)
+    display_test(test_table)

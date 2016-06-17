@@ -79,6 +79,6 @@ for row in participant_table:
     thisExp.nextEntry()
 
 load_instructions(test_instructions)
-display_test(dots_test_table)
+display_test(test_table)
 
 core.quit()

@@ -3,7 +3,7 @@ import pandas as pd
 import olives.Constants as Constants
 from participant_generator import generate_trip_ordering_csv
 
-participants = glob.glob('%s/*.csv' % Constants.PARTICIPANT_PATH)
+participants = glob.glob('%s/*/participant_?.csv' % Constants.PARTICIPANT_PATH)
 
 for participant_path in participants:
     successful = False
@@ -39,7 +39,7 @@ for participant_path in participants:
 
         # Provide a better name for index and column
         # Flip 'index' and 'colour' for showing probability for dots
-        df_trip.index.names, df_trip.columns.names = ['index'], ['colour']
+        df_trip.index.names, df_trip.columns.names = ['Dot'], ['Colour']
 
         # join the created table with the previous tables.
         output_df = output_df.join(df_trip, how="outer")
@@ -64,4 +64,4 @@ for participant_path in participants:
 
     # Save output to CSV
     output_df.to_csv(
-        Constants.PARTICIPANT_PROBABILITY_FILE_PATH % participant_num)
+        Constants.PARTICIPANT_PROBABILITY_FILE_PATH % (participant_num, participant_num))

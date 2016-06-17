@@ -32,6 +32,8 @@ DATA_OUTPUT_RESP_COL = 'response_time'
 DOT_COL = 'dot_values'
 COLOUR_COL = 'colour_values'
 INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
+TEST_LEFT_COL_NAMES = ['stim1_dots1', 'stim1_dots2', 'stim1_dots3', 'stim1_color1', 'stim1_color2', 'stim1_color3']
+TEST_RIGHT_COL_NAMES = ['stim2_dots1', 'stim2_dots2', 'stim2_dots3', 'stim2_color1', 'stim2_color2', 'stim2_color3']
 
 ############################################################
 ###                      KEYBOARD KEYS                   ###
@@ -105,7 +107,9 @@ TEST_RIGHT_DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET + TEST_STIM_SHIFT, -DOT_CORD_VE
 ###                     PATHS                            ###
 ############################################################
 PARTICIPANT_PATH = '../participants'
-PARTICIPANT_PROBABILITY_FILE_PATH = '../participants/probabilities/participant_%s_probability.csv'
-PARTICIPANT_FILE_PATH = '../participants/participant_%s.csv'
+PARTICIPANT_PROBABILITY_FILE_PATH = '../participants/%d/participant_%d_probability.csv'
+PARTICIPANT_TEST_FILE_PATH = '../participants/%d/participant_%d_test.csv'
+PARTICIPANT_FILE_PATH = '../participants/%d/participant_%d.csv'
+PARTICIPANT_FOLDER_PATH = '../participants/%d'
 DATA_PATH = '../data'
-DOTS_TEST_FILE_PATH = '../dots_test_items.csv'
+TEST_FILE_PATH = '../test_items.csv'

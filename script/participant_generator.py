@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import scipy.stats as ss
 import olives.Constants as Constants
+import os
 
 
 def _random_gen(triplet):
@@ -44,12 +45,20 @@ def _random_gen(triplet):
     return rand_ord
 
 
+def _generate_participant_folder(num):
+    if not os.path.exists(Constants.PARTICIPANT_FOLDER_PATH % num):
+        os.makedirs(Constants.PARTICIPANT_FOLDER_PATH % num)
+
+
 def generate_trip_ordering_csv(participant_number):
     """
     Generate random ordering for dot and colour triplets that are independent from one another.
     Allow for an empty row to appear for each row with a probability of constants.SQUARE_PROB.
     :param participant_number: Participant Number
     """
+
+    _generate_participant_folder(participant_number)
+
     dot_trip_ord = _random_gen(Constants.DOT_TRIPS)
     colour_trip_ord = _random_gen(Constants.COLOUR_TRIPS)
 
@@ -87,9 +96,9 @@ def generate_trip_ordering_csv(participant_number):
     df_output['participant'] = participant_number
 
     # Save the table into a CSV file
-    df_output.to_csv(Constants.PARTICIPANT_FILE_PATH % participant_number, index=False)
+    df_output.to_csv(Constants.PARTICIPANT_FILE_PATH % (participant_number, participant_number), index=False)
 
 
 if __name__ == '__main__':
     for i in range(1, Constants.NUM_OF_PARTICIPANTS + 1):
-        generate_trip_ordering_csv(i)
+        generate_trip_ordering_csv(999)
