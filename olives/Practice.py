@@ -1,10 +1,9 @@
 from psychopy import event, core
-from Graphics import *
 import Constants
 import time
 
 
-def display_practice():
+def display_practice(graphics):
     left = [['A', 'B', 'C'], ['Z', 'X', 'Y']]
     right = [['B', 'C', 'A'], ['X', 'Y', 'Z']]
 
@@ -13,8 +12,8 @@ def display_practice():
         return
 
     num_of_practice_trials = 2
-    training_stim_val = [training_left_stim, training_right_stim]
-    training_stim = [left, right]
+    practice_stim_val = ['PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM']
+    practice_stim = [left, right]
     routine_timer = core.CountdownTimer()
 
     for trial in range(num_of_practice_trials):  # 2 practices
@@ -22,16 +21,16 @@ def display_practice():
             for stim in range(3):  # Go through each triplet
                 routine_timer.reset()
                 routine_timer.add(Constants.DISPLAY_VISUAL_TIME)
-                training_stim_val[i].setText(training_stim[i][trial][stim])
-                training_stim_val[i].draw()
-                win.flip()
+                graphics.set_text(practice_stim_val[i], practice_stim[i][trial][stim])
+                graphics.draw(practice_stim_val[i])
+                graphics.refresh()
                 while routine_timer.getTime() > 0:
                     if event.getKeys(keyList=Constants.ESCAPE_KEYS):
                         core.quit()
                     elif event.getKeys(keyList=Constants.SKIP_KEYS):
                         return
 
-                win.flip()
+                graphics.refresh()
                 # Remove visuals
                 routine_timer.add(Constants.NO_VISUAL_TIME)
                 while routine_timer.getTime() > 0:
@@ -40,17 +39,13 @@ def display_practice():
                     elif event.getKeys(keyList=Constants.SKIP_KEYS):
                         return
 
-        question_mark_visual.draw()
-        win.flip()
+        graphics.draw('QUESTION_MARK')
+        graphics.refresh()
         event.clearEvents()
         while True:
             if event.getKeys(keyList=Constants.ESCAPE_KEYS):
                 core.quit()
             elif event.getKeys(keyList=Constants.PRACTICE_RESP_KEYS):
                 break
-        win.flip()
+        graphics.refresh()
         time.sleep(Constants.NO_VISUAL_TIME)
-
-
-if __name__ == '__main__':
-    display_practice()

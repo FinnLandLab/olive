@@ -13,6 +13,10 @@ SQUARE_PROB = 0.1
 # Max probability allowed for a colour to match with a dot value
 MAX_PROB = 0.6
 
+BLOCKS = ['PRACTICE', 'TRAINING', 'TEST']
+INSTRUCTIONS = ['PRACTICE', 'TRAINING', 'TEST']
+GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', "TRAINING_LEFT_STIM", "TRAINING_RIGHT_STIM", 'QUESTION_MARK']
+
 ############################################################
 ###                    TRIPLET VALUES                    ###
 ############################################################
