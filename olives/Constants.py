@@ -75,7 +75,7 @@ TEST_DELAY_BETWEEN_TRIALS = 1  # Seconds
 ############################################################
 # Window
 WIN_SIZE = (1000, 500)  # (1920, 1080)
-WIN_FULL_SCREEN = False  # True
+WIN_FULL_SCREEN = True  # True
 
 # VISUALS
 GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', 'PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM', 'QUESTION_MARK']
@@ -130,7 +130,7 @@ PARTICIPANT_PATH = '../participants'
 PARTICIPANT_PROBABILITY_FILE_PATH = '../participants/%d/participant_%d_probability.csv'
 PARTICIPANT_TEST_PROBABILITY_FILE_PATH = '../participants/%d/participant_%d_test_probability.csv'
 PARTICIPANT_TEST_FILE_PATH = '../participants/%d/participant_%d_test.csv'
-PARTICIPANT_FILE_PATH = '../participants/%d/participant_%d.csv'
+PARTICIPANT_FILE_PATH = '../participants/%d/participant_%d_training.csv'
 PARTICIPANT_FOLDER_PATH = '../participants/%d'
 DATA_PATH = '../data'
 TEST_FILE_PATH = '../test_items.csv'

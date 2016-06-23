@@ -1,7 +1,7 @@
 import glob
 import pandas as pd
 import olives.Constants as Constants
-from participant_generator import generate_trip_ordering_csv
+from participant_training_generator import generate_trip_ordering_csv
 from participant_test_generator import generate_test_trip_ordering_csv
 
 
@@ -11,7 +11,7 @@ def training_prob():
     If there is a probability greater than the max probability (as defined as 'MAX_PROB' in Constants) for a particular
     dot to appear with a particular colour, then a new participant training file will get created.
     """
-    participants = glob.glob('%s/*/participant_?.csv' % Constants.PARTICIPANT_PATH)
+    participants = glob.glob('%s/*/participant_[0-9]*_training.csv' % Constants.PARTICIPANT_PATH)
 
     for participant_path in participants:
         successful = False
@@ -82,7 +82,7 @@ def test_prob():
     (as defined as 'MAX_STIM_PROB' in Constants), then a new participant test file will get created.
     """
 
-    participants = glob.glob('%s/*/participant_?_test.csv' % Constants.PARTICIPANT_PATH)
+    participants = glob.glob('%s/*/participant_[0-9]*_test.csv' % Constants.PARTICIPANT_PATH)
 
     for participant_path in participants:
 
