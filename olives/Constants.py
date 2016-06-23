@@ -16,10 +16,6 @@ MAX_PROB = 0.6
 # Max probability allowed for the correct stim to appear on one given side for test phase
 MAX_TEST_PROB = 0.75
 
-BLOCKS = ['PRACTICE', 'TRAINING', 'TEST']
-INSTRUCTIONS = ['PRACTICE', 'TRAINING', 'TEST']
-GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', "TRAINING_LEFT_STIM", "TRAINING_RIGHT_STIM", 'QUESTION_MARK']
-
 # Number of test items for both colours and dots during the test phase.
 NUM_OF_COLOUR_DOT_TEST_COMP = 24
 
@@ -56,7 +52,7 @@ LEFT_STIM_KEY = 'x'
 DATA_OUTPUT_COL = 'response'
 DATA_OUTPUT_RESP_COL = 'response_time'
 TEST_OUTPUT_COL = 'stim_response'  # Used for direction (left stim or right stim)
-TEST_STIM_RESP = {LEFT_STIM_KEY: 'LEFT', RIGHT_STIM_KEY: 'RIGHT'}
+TEST_STIM_RESP = {LEFT_STIM_KEY: 'left', RIGHT_STIM_KEY: 'right'}
 DOT_COL = 'dot_values'
 COLOUR_COL = 'colour_values'
 TEST_CORRECT_COL = 'correct'
@@ -80,7 +76,9 @@ TEST_DELAY_BETWEEN_TRIALS = 1  # Seconds
 WIN_SIZE = (1000, 500)  # (1920, 1080)
 WIN_FULL_SCREEN = True  # True
 
-# VISUALS
+# Values for graphics variables
+BLOCKS = ['PRACTICE', 'TRAINING', 'TEST']
+INSTRUCTIONS = ['PRACTICE', 'TRAINING', 'TEST']
 GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', 'PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM', 'QUESTION_MARK']
 
 # Shapes

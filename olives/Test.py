@@ -29,10 +29,6 @@ def display_test(data_handlers, graphics):
         for i in range(2):  # Left stim then right stim
             for stim in range(3):  # Go through each triplet
 
-                # Set timer for each stim
-                routine_timer.reset()
-                routine_timer.add(Constants.DISPLAY_VISUAL_TIME)
-
                 # Set the colour and coordinates for circle and dots for the given stim
                 graphics.set_colour('CIRCLE', row[test_stim[i][test_dict['colour']][stim]])
                 graphics.set_line_colour('CIRCLE', row[test_stim[i][test_dict['colour']][stim]])
@@ -42,6 +38,17 @@ def display_test(data_handlers, graphics):
                 # Draw the circle and dot
                 graphics.draw('CIRCLE')
                 graphics.draw('DOT')
+
+                routine_timer.reset()
+
+                # Display visuals for the given length
+                routine_timer.add(Constants.DISPLAY_VISUAL_TIME)
+                graphics.refresh()
+                while routine_timer.getTime() > 0:
+                    if event.getKeys(keyList=Constants.ESCAPE_KEYS):
+                        core.quit()
+                    elif event.getKeys(keyList=Constants.SKIP_KEYS):
+                        return
 
                 # Clear the screen and wait for the given length
                 graphics.refresh()

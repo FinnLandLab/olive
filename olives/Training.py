@@ -48,6 +48,7 @@ def display_training(data_handlers, graphics):
 
         routine_timer.add(Constants.DISPLAY_VISUAL_TIME)
         graphics.refresh()
+        event.clearEvents()
 
         # Display visuals for the given amount of time.
         while routine_timer.getTime() > 0:
