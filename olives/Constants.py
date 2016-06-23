@@ -29,17 +29,6 @@ COLOUR_INDEX = 0
 DOT_INDEX = 1
 
 ############################################################
-###                 DATA OUTPUT COLUMNS                  ###
-############################################################
-DATA_OUTPUT_COL = 'response'
-DATA_OUTPUT_RESP_COL = 'response_time'
-DOT_COL = 'dot_values'
-COLOUR_COL = 'colour_values'
-INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
-TEST_LEFT_COL_NAMES = ['stim1_dots1', 'stim1_dots2', 'stim1_dots3', 'stim1_color1', 'stim1_color2', 'stim1_color3']
-TEST_RIGHT_COL_NAMES = ['stim2_dots1', 'stim2_dots2', 'stim2_dots3', 'stim2_color1', 'stim2_color2', 'stim2_color3']
-
-############################################################
 ###                      KEYBOARD KEYS                   ###
 ############################################################
 ESCAPE_KEYS = ['esc', 'escape']
@@ -47,22 +36,45 @@ SKIP_KEYS = ['tab']
 SPACE_KEYS = ['space']
 CIRCLE_KEYS = ['x', 'X']
 SQUARE_KEYS = ['N', 'n']
+LEFT_STIM_KEYS = ['x', 'X']
+RIGHT_STIM_KEYS = ['n', 'N']
 PRACTICE_RESP_KEYS = ['N', 'n', 'X', 'x']
 CIRCLE_KEY = 'x'
 SQUARE_KEY = 'n'
+RIGHT_STIM_KEY = 'n'
+LEFT_STIM_KEY = 'x'
 
 ############################################################
 ###                 DATA OUTPUT COLUMNS                  ###
 ############################################################
+DATA_OUTPUT_COL = 'response'
+DATA_OUTPUT_RESP_COL = 'response_time'
+TEST_OUTPUT_COL = 'stim_response'  # Used for direction (left stim or right stim)
+TEST_STIM_RESP = {LEFT_STIM_KEY: 'LEFT', RIGHT_STIM_KEY: 'RIGHT'}
+DOT_COL = 'dot_values'
+COLOUR_COL = 'colour_values'
+INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
+TEST_LEFT_COL_NAMES = ['stim1_dots1', 'stim1_dots2', 'stim1_dots3', 'stim1_color1', 'stim1_color2', 'stim1_color3']
+TEST_RIGHT_COL_NAMES = ['stim2_dots1', 'stim2_dots2', 'stim2_dots3', 'stim2_color1', 'stim2_color2', 'stim2_color3']
+TEST_LEFT_COL_ORD = [['stim1_dots1', 'stim1_dots2', 'stim1_dots3'], ['stim1_color1', 'stim1_color2', 'stim1_color3']]
+TEST_RIGHT_COL_ORD = [['stim2_dots1', 'stim2_dots2', 'stim2_dots3'], ['stim2_color1', 'stim2_color2', 'stim2_color3']]
+
+############################################################
+###                 TIME VALUES                          ###
+############################################################
 DISPLAY_VISUAL_TIME = 0.6  # Seconds
 NO_VISUAL_TIME = 0.2  # Seconds
+TEST_DELAY_BETWEEN_TRIALS = 1  # Seconds
 
 ############################################################
 ###                    VISUAL VALUES                     ###
 ############################################################
 # Window
 WIN_SIZE = (1000, 500)  # (1920, 1080)
-WIN_FULL_SCREEN = True  # True
+WIN_FULL_SCREEN = False  # True
+
+# VISUALS
+GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', 'PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM', 'QUESTION_MARK']
 
 # Shapes
 DOT_CORD_VERT_OFFSET = 2.5
