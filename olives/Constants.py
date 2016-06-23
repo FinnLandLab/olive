@@ -13,6 +13,9 @@ SQUARE_PROB = 0.1
 # Max probability allowed for a colour to match with a dot value
 MAX_PROB = 0.6
 
+# Max probability allowed for the correct stim to appear on one given side for test phase
+MAX_TEST_PROB = 0.75
+
 BLOCKS = ['PRACTICE', 'TRAINING', 'TEST']
 INSTRUCTIONS = ['PRACTICE', 'TRAINING', 'TEST']
 GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', "TRAINING_LEFT_STIM", "TRAINING_RIGHT_STIM", 'QUESTION_MARK']
@@ -53,6 +56,7 @@ TEST_OUTPUT_COL = 'stim_response'  # Used for direction (left stim or right stim
 TEST_STIM_RESP = {LEFT_STIM_KEY: 'LEFT', RIGHT_STIM_KEY: 'RIGHT'}
 DOT_COL = 'dot_values'
 COLOUR_COL = 'colour_values'
+TEST_CORRECT_COL = 'correct'
 INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
 TEST_LEFT_COL_NAMES = ['stim1_dots1', 'stim1_dots2', 'stim1_dots3', 'stim1_color1', 'stim1_color2', 'stim1_color3']
 TEST_RIGHT_COL_NAMES = ['stim2_dots1', 'stim2_dots2', 'stim2_dots3', 'stim2_color1', 'stim2_color2', 'stim2_color3']
@@ -124,6 +128,7 @@ TEST_RIGHT_DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET + TEST_STIM_SHIFT, -DOT_CORD_VE
 ############################################################
 PARTICIPANT_PATH = '../participants'
 PARTICIPANT_PROBABILITY_FILE_PATH = '../participants/%d/participant_%d_probability.csv'
+PARTICIPANT_TEST_PROBABILITY_FILE_PATH = '../participants/%d/participant_%d_test_probability.csv'
 PARTICIPANT_TEST_FILE_PATH = '../participants/%d/participant_%d_test.csv'
 PARTICIPANT_FILE_PATH = '../participants/%d/participant_%d.csv'
 PARTICIPANT_FOLDER_PATH = '../participants/%d'

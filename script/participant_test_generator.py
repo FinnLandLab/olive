@@ -2,18 +2,19 @@ import pandas as pd
 import numpy as np
 import scipy.stats as ss
 import olives.Constants as Constants
-import glob
 import os
 
-# Find all participant folders (participant folders are labeled as the participant number)
-participants = glob.glob('%s/[0-9]*/' % Constants.PARTICIPANT_PATH)
 
-# Read the Test file that contains all combinations.
-df = pd.read_csv(Constants.TEST_FILE_PATH)
+def _generate_participant_folder(num):
+    if not os.path.exists(Constants.PARTICIPANT_FOLDER_PATH % num):
+        os.makedirs(Constants.PARTICIPANT_FOLDER_PATH % num)
 
-for participant_path in participants:
-    # Get participant number from the path (name of folder).
-    participant_num = int(participant_path.split(os.sep)[1])
+
+def generate_test_trip_ordering_csv(participant):
+    _generate_participant_folder(participant)
+
+    # Read the Test file that contains all combinations.
+    df = pd.read_csv(Constants.TEST_FILE_PATH)
 
     # Lambda function that selects 2 rows at random without replacement from a column in the given DataFrame.
     group_by_op = lambda x: x.loc[np.random.choice(x.index, size=2, replace=False), :]
@@ -35,10 +36,15 @@ for participant_path in participants:
     # Add column that says whether the Left and Right stim where switched based on idx Series value.
     grouped_df['correct'] = ['Right' if i else 'Left' for i in idx]
 
-    grouped_df['participant'] = participant_num
+    grouped_df['participant'] = participant
 
     # Switch Left and Right stim based on the idx Series. If false, nothing happens; if true, the columns get switched.
     grouped_df.loc[idx, Constants.TEST_LEFT_COL_NAMES + Constants.TEST_RIGHT_COL_NAMES] = grouped_df.loc[
         idx, Constants.TEST_RIGHT_COL_NAMES + Constants.TEST_LEFT_COL_NAMES].values
 
-    grouped_df.to_csv(Constants.PARTICIPANT_TEST_FILE_PATH % (participant_num, participant_num), index=False)
+    grouped_df.to_csv(Constants.PARTICIPANT_TEST_FILE_PATH % (participant, participant), index=False)
+
+
+if __name__ == '__main__':
+    for i in range(1, Constants.NUM_OF_PARTICIPANTS + 1):
+        generate_test_trip_ordering_csv(i)

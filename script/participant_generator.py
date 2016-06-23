@@ -83,6 +83,7 @@ def generate_trip_ordering_csv(participant_number):
 
     # Insert an additional empty row in each row with the probability of the square appearing.
     square_prob_array = ss.bernoulli.rvs(Constants.SQUARE_PROB, size=len(df_output.index))
+
     for j in range(len(square_prob_array) - 1, -1, -1):
         # If it should appear, place an additional empty row in the given index
         if square_prob_array[j]:
@@ -101,4 +102,4 @@ def generate_trip_ordering_csv(participant_number):
 
 if __name__ == '__main__':
     for i in range(1, Constants.NUM_OF_PARTICIPANTS + 1):
-        generate_trip_ordering_csv(999)
+        generate_trip_ordering_csv(i)
