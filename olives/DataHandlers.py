@@ -22,6 +22,7 @@ class DataHandlers:
         if not self._dlg.OK:
             core.quit()  # user pressed cancel
 
+        # Create participant folder inside data path if one doesn't already exist
         if not os.path.exists('%s/%s' % (Constants.DATA_PATH, self._expInfo['participant'])):
             os.makedirs('%s/%s' % (Constants.DATA_PATH, self._expInfo['participant']))
 

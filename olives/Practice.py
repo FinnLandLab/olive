@@ -9,20 +9,16 @@ def display_practice(graphics):
     :param graphics: graphics object which holds all visuals.
     """
 
-    # The two trials for left and right stim
-    left = [['A', 'B', 'C'], ['Z', 'X', 'Y']]
-    right = [['B', 'C', 'A'], ['X', 'Y', 'Z']]
-
     # num of trials in left must be equal to num of trials in right.
     if len(left) != len(right):
         return
 
     num_of_practice_trials = 2
     practice_stim_val = ['PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM']
-    practice_stim = [left, right]
+    practice_stim = [Constants.PRACTICE_LEFT_STIM, Constants.PRACTICE_RIGHT_STIM]
     routine_timer = core.CountdownTimer()
 
-    for trial in range(num_of_practice_trials):  # 2 practices
+    for trial in range(num_of_practice_trials):  # 2 practice trials
         for i in range(2):  # Left stim then right stim
             for stim in range(3):  # Go through each triplet
 

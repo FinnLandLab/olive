@@ -30,6 +30,9 @@ COLOUR_INDEX = 0
 # Index of dot in 'INDEX_AND_COL_TRIP' array
 DOT_INDEX = 1
 
+# Practice left and right trials
+PRACTICE_LEFT_STIMS = [['A', 'B', 'C'], ['Z', 'X', 'Y']]
+PRACTICE_RIGHT_STIMS = [['B', 'C', 'A'], ['X', 'Y', 'Z']]
 ############################################################
 ###                      KEYBOARD KEYS                   ###
 ############################################################
@@ -47,7 +50,7 @@ RIGHT_STIM_KEY = 'n'
 LEFT_STIM_KEY = 'x'
 
 ############################################################
-###                 DATA OUTPUT COLUMNS                  ###
+###                     DATA COLUMNS                     ###
 ############################################################
 DATA_OUTPUT_COL = 'response'
 DATA_OUTPUT_RESP_COL = 'response_time'
@@ -85,7 +88,6 @@ GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', 'PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STI
 DOT_CORD_VERT_OFFSET = 2.5
 DOT_CORD_HORZ_OFFSET = 3
 TEST_STIM_SHIFT = 10
-
 SHAPE_EDGE = 66
 CIRCLE_RADIUS = 5
 DOT_RADIUS = 1
