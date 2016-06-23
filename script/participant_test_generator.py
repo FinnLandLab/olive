@@ -34,13 +34,17 @@ def generate_test_trip_ordering_csv(participant):
     idx = pd.Series(ss.bernoulli.rvs(p=0.5, size=len(grouped_df))).astype(bool)
 
     # Add column that says whether the Left and Right stim where switched based on idx Series value.
-    grouped_df['correct'] = ['Right' if i else 'Left' for i in idx]
+    grouped_df['correct'] = ['Right' if j else 'Left' for j in idx]
 
     grouped_df['participant'] = participant
 
     # Switch Left and Right stim based on the idx Series. If false, nothing happens; if true, the columns get switched.
     grouped_df.loc[idx, Constants.TEST_LEFT_COL_NAMES + Constants.TEST_RIGHT_COL_NAMES] = grouped_df.loc[
         idx, Constants.TEST_RIGHT_COL_NAMES + Constants.TEST_LEFT_COL_NAMES].values
+
+    # Shuffle the colour and dots test rows
+    grouped_df = pd.concat([grouped_df.iloc[np.random.permutation(range(Constants.NUM_OF_COLOUR_DOT_TEST_COMP))],
+                            grouped_df.iloc[Constants.NUM_OF_COLOUR_DOT_TEST_COMP:]])
 
     grouped_df.to_csv(Constants.PARTICIPANT_TEST_FILE_PATH % (participant, participant), index=False)
 

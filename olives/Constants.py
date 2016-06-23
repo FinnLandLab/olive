@@ -20,6 +20,9 @@ BLOCKS = ['PRACTICE', 'TRAINING', 'TEST']
 INSTRUCTIONS = ['PRACTICE', 'TRAINING', 'TEST']
 GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', "TRAINING_LEFT_STIM", "TRAINING_RIGHT_STIM", 'QUESTION_MARK']
 
+# Number of test items for both colours and dots during the test phase.
+NUM_OF_COLOUR_DOT_TEST_COMP = 24
+
 ############################################################
 ###                    TRIPLET VALUES                    ###
 ############################################################

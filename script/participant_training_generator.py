@@ -72,7 +72,6 @@ def generate_trip_ordering_csv(participant_number):
     result = result.append(offset, ignore_index=True)
     result = result.append(df_dots[0:], ignore_index=True)
     df_dots = result
-    print df_dots
 
     df_colours = pd.DataFrame(colour_trip_ord, columns=["colour_values"])
     offset = pd.Series(np.nan, index=df_colours.columns.values)
