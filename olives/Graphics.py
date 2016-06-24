@@ -54,6 +54,13 @@ class Graphics:
                                                   color='white', colorSpace='rgb', opacity=1,
                                                   depth=0.0)
 
+        self._ending_instructions = visual.TextStim(win=self._win, ori=0, name='test_instruction_screen',
+                                                    text='ENDING INSTRUCTIONS GO HERE',
+                                                    font='Arial',
+                                                    pos=Constants.CENTER_CORD, height=0.1, wrapWidth=None,
+                                                    color='white', colorSpace='rgb', opacity=1,
+                                                    depth=0.0)
+
         # practice stim texts
         self._practice_left_stim = visual.TextStim(win=self._win, ori=0, name='training_left_stim',
                                                    text='A',
@@ -82,7 +89,7 @@ class Graphics:
 
         # Used for quick access to instructions text visual based on current phase
         self._instructions = {'PRACTICE': self._practice_instructions, 'TRAINING': self._main_instructions,
-                              'TEST': self._test_instructions}
+                              'TEST': self._test_instructions, 'ENDING': self._ending_instructions}
 
         # Used for quick access to visual objects based on type
         # Should be up to date with Constants.GRAPHICS

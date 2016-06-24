@@ -27,4 +27,7 @@ graphics.set_instruction('TEST')
 load_instructions(graphics)
 display_test(data_handlers, graphics)
 
+graphics.set_instruction('ENDING')
+load_instructions(graphics)
+
 core.quit()

@@ -10,12 +10,12 @@ def display_practice(graphics):
     """
 
     # num of trials in left must be equal to num of trials in right.
-    if len(left) != len(right):
+    if len(Constants.PRACTICE_LEFT_STIMS) != len(Constants.RIGHT_STIM_KEYS):
         return
 
     num_of_practice_trials = 2
     practice_stim_val = ['PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM']
-    practice_stim = [Constants.PRACTICE_LEFT_STIM, Constants.PRACTICE_RIGHT_STIM]
+    practice_stim = [Constants.PRACTICE_LEFT_STIMS, Constants.PRACTICE_RIGHT_STIMS]
     routine_timer = core.CountdownTimer()
 
     for trial in range(num_of_practice_trials):  # 2 practice trials
