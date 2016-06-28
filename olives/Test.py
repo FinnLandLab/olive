@@ -30,14 +30,15 @@ def display_test(data_handlers, graphics):
             for stim in range(3):  # Go through each triplet
 
                 # Set the colour and coordinates for circle and dots for the given stim
-                graphics.set_colour('CIRCLE', row[test_stim[i][test_dict['colour']][stim]])
-                graphics.set_line_colour('CIRCLE', row[test_stim[i][test_dict['colour']][stim]])
-                graphics.set_pos('DOT', test_stim_pos[i][test_dict['dot']][row[test_stim[i][test_dict['dot']][stim]]])
-                graphics.set_pos('CIRCLE', test_stim_pos[i][test_dict['colour']])
+                graphics.set_colour(Constants.VIS_CIRCLE, row[test_stim[i][test_dict['colour']][stim]])
+                graphics.set_line_colour(Constants.VIS_CIRCLE, row[test_stim[i][test_dict['colour']][stim]])
+                graphics.set_pos(Constants.VIS_DOT,
+                                 test_stim_pos[i][test_dict['dot']][row[test_stim[i][test_dict['dot']][stim]]])
+                graphics.set_pos(Constants.VIS_CIRCLE, test_stim_pos[i][test_dict['colour']])
 
                 # Draw the circle and dot
-                graphics.draw('CIRCLE')
-                graphics.draw('DOT')
+                graphics.draw(Constants.VIS_CIRCLE)
+                graphics.draw(Constants.VIS_DOT)
 
                 routine_timer.reset()
 
@@ -60,7 +61,7 @@ def display_test(data_handlers, graphics):
                         return
 
         # Draw question mark and wait for response.
-        graphics.draw('QUESTION_MARK')
+        graphics.draw(Constants.VIS_QUESTION_MARK)
         graphics.refresh()
 
         response_timer.reset()

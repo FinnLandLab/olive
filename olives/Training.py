@@ -26,25 +26,25 @@ def display_training(data_handlers, graphics):
         colour_cols_empty = str(row[Constants.COLOUR_COL]) == 'nan'
 
         # Set the colours for the circle.
-        graphics.set_colour('CIRCLE', row[Constants.COLOUR_COL])
-        graphics.set_line_colour('CIRCLE', row[Constants.COLOUR_COL])
+        graphics.set_colour(Constants.VIS_CIRCLE, row[Constants.COLOUR_COL])
+        graphics.set_line_colour(Constants.VIS_CIRCLE, row[Constants.COLOUR_COL])
 
         # Draw the appropriate shape based on the values of the rows for dots and colours.
         if not dot_cols_empty:
-            graphics.set_pos('DOT', Constants.DOT_CORD[row[Constants.DOT_COL]])
+            graphics.set_pos(Constants.VIS_DOT, Constants.DOT_CORD[row[Constants.DOT_COL]])
         if dot_cols_empty and colour_cols_empty:
             # Square shape should appear
-            graphics.draw('SQUARE')
+            graphics.draw(Constants.VIS_SQUARE)
         elif dot_cols_empty:
             # Only big circle appears (colour)
-            graphics.draw('CIRCLE')
+            graphics.draw(Constants.VIS_CIRCLE)
         elif colour_cols_empty:
             # Only small circle appears (dot)
-            graphics.draw('DOT')
+            graphics.draw(Constants.VIS_DOT)
         else:
             # Both small and big circles appear (colour and dot)
-            graphics.draw('CIRCLE')
-            graphics.draw('DOT')
+            graphics.draw(Constants.VIS_CIRCLE)
+            graphics.draw(Constants.VIS_DOT)
 
         routine_timer.add(Constants.DISPLAY_VISUAL_TIME)
         graphics.refresh()

@@ -14,7 +14,7 @@ def display_practice(graphics):
         return
 
     num_of_practice_trials = 2
-    practice_stim_val = ['PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM']
+    practice_stim_val = [Constants.VIS_PRACTICE_LEFT_STIM, Constants.VIS_PRACTICE_RIGHT_STIM]
     practice_stim = [Constants.PRACTICE_LEFT_STIMS, Constants.PRACTICE_RIGHT_STIMS]
     routine_timer = core.CountdownTimer()
 
@@ -49,7 +49,7 @@ def display_practice(graphics):
                         return
 
         # After stims have been displayed, draw a question mark and wait for response.
-        graphics.draw('QUESTION_MARK')
+        graphics.draw(Constants.VIS_QUESTION_MARK)
         graphics.refresh()
         event.clearEvents()
 

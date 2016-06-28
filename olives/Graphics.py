@@ -23,10 +23,10 @@ class Graphics:
         self._circle_visual = visual.Circle(self._win, pos=Constants.CENTER_CORD, radius=Constants.CIRCLE_RADIUS,
                                             edges=Constants.SHAPE_EDGE, units='deg')
 
-        self._dot_circle_visual = visual.Circle(self._win, pos=Constants.CENTER_CORD, radius=Constants.DOT_RADIUS,
-                                                edges=Constants.SHAPE_EDGE,
-                                                units='deg', fillColor=Constants.DOT_FILL_COL,
-                                                lineColor=Constants.DOT_LINE_COL)
+        self._dot_visual = visual.Circle(self._win, pos=Constants.CENTER_CORD, radius=Constants.DOT_RADIUS,
+                                         edges=Constants.SHAPE_EDGE,
+                                         units='deg', fillColor=Constants.DOT_FILL_COL,
+                                         lineColor=Constants.DOT_LINE_COL)
 
         self._square_visual = visual.Rect(self._win, pos=Constants.CENTER_CORD, width=Constants.SQUARE_WIDTH,
                                           height=Constants.SQUARE_HEIGHT, fillColor=Constants.SQUARE_FILL_COL,
@@ -88,14 +88,17 @@ class Graphics:
         self._instruction = None
 
         # Used for quick access to instructions text visual based on current phase
-        self._instructions = {'PRACTICE': self._practice_instructions, 'TRAINING': self._main_instructions,
-                              'TEST': self._test_instructions, 'ENDING': self._ending_instructions}
+        self._instructions = {Constants.INSTRUC_PRACTICE: self._practice_instructions,
+                              Constants.INSTRUC_TRAINING: self._main_instructions,
+                              Constants.INSTRUC_TEST: self._test_instructions,
+                              Constants.INSTRUCT_ENDING: self._ending_instructions}
 
         # Used for quick access to visual objects based on type
-        # Should be up to date with Constants.GRAPHICS
-        self._graphics = {'CIRCLE': self._circle_visual, 'DOT': self._dot_circle_visual, 'SQUARE': self._square_visual,
-                          "PRACTICE_LEFT_STIM": self._practice_left_stim,
-                          "PRACTICE_RIGHT_STIM": self._practice_right_stim, 'QUESTION_MARK': self._question_mark_visual}
+        self._graphics = {Constants.VIS_CIRCLE: self._circle_visual, Constants.VIS_DOT: self._dot_visual,
+                          Constants.VIS_SQUARE: self._square_visual,
+                          Constants.VIS_PRACTICE_LEFT_STIM: self._practice_left_stim,
+                          Constants.VIS_PRACTICE_RIGHT_STIM: self._practice_right_stim,
+                          Constants.VIS_QUESTION_MARK: self._question_mark_visual}
 
     def set_instruction(self, instruction):
         """

@@ -27,7 +27,7 @@ class DataHandlers:
             os.makedirs('%s/%s' % (Constants.DATA_PATH, self._expInfo['participant']))
 
         # File names for participants training/test files and output file names
-        self._participant_filename = '%s/%s/%s_training_%s' % (
+        self._participant_training_filename = '%s/%s/%s_training_%s' % (
             Constants.DATA_PATH, self._expInfo['participant'], self._expInfo['participant'], self._expInfo['date'])
 
         self._participant_test_filename = '%s/%s/%s_test_%s' % (
@@ -57,10 +57,12 @@ class DataHandlers:
                                              seed=None, name='')
 
         # Used for quick access to needed variables based on current phase
-        self._data_file_names = {'PRACTICE': None, 'TRAINING': self._participant_filename,
-                                 'TEST': self._participant_test_filename}
+        self._data_file_names = {Constants.PHASE_PRACTICE: None,
+                                 Constants.PHASE_TRAINING: self._participant_training_filename,
+                                 Constants.PHASE_TEST: self._participant_test_filename}
 
-        self._data_tables = {'PRACTICE': None, 'TRAINING': self._training_table, 'TEST': self._test_table}
+        self._data_tables = {Constants.PHASE_PRACTICE: None, Constants.PHASE_TRAINING: self._training_table,
+                             Constants.PHASE_TEST: self._test_table}
 
     def set_exp_handler(self, block):
         """

@@ -99,6 +99,20 @@ SQUARE_LINE_COL = 'white'
 SQUARE_FILL_COL = 'white'
 CENTER_CORD = [0, 0]
 
+# Psychopy Visuals
+VIS_CIRCLE = 'CIRCLE'
+VIS_DOT = 'DOT'
+VIS_SQUARE = 'SQUARE'
+VIS_PRACTICE_LEFT_STIM = 'PRACTICE_LEFT_STIM'
+VIS_PRACTICE_RIGHT_STIM = 'PRACTICE_RIGHT_STIM'
+VIS_QUESTION_MARK = 'QUESTION_MARK'
+
+# Psychopy Instruction Visuals
+INSTRUC_PRACTICE = 'PRACTICE'
+INSTRUC_TRAINING = 'TRAINING'
+INSTRUC_TEST = 'TEST'
+INSTRUCT_ENDING = 'ENDING'
+
 # Dot coordinates for positioning
 DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_HORZ_OFFSET),
             3: (DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET),
@@ -137,3 +151,12 @@ PARTICIPANT_FILE_PATH = '../participants/%d/participant_%d_training.csv'
 PARTICIPANT_FOLDER_PATH = '../participants/%d'
 DATA_PATH = '../data'
 TEST_FILE_PATH = '../test_items.csv'
+
+############################################################
+###                        PHASES                        ###
+############################################################
+# Psychopy Instruction Visuals
+PHASE_PRACTICE = 'PRACTICE'
+PHASE_TRAINING = 'TRAINING'
+PHASE_TEST = 'TEST'
+PHASE_ENDING = 'ENDING'
