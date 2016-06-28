@@ -155,7 +155,6 @@ TEST_FILE_PATH = '../test_items.csv'
 ############################################################
 ###                        PHASES                        ###
 ############################################################
-# Psychopy Instruction Visuals
 PHASE_PRACTICE = 'PRACTICE'
 PHASE_TRAINING = 'TRAINING'
 PHASE_TEST = 'TEST'
