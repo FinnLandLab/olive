@@ -13,22 +13,18 @@ graphics = Graphics.Graphics()
 
 # TRAINING PHASE
 data_handlers.set_exp_handler(Constants.PHASE_TRAINING)
-graphics.set_instruction(Constants.INSTRUC_TRAINING)
-load_instructions(graphics)
+load_instructions(graphics, Constants.TRAINING_INSTRUCTIONS)
 display_training(data_handlers, graphics)
 
 # PRACTICE PHASE
-graphics.set_instruction(Constants.PHASE_PRACTICE)
-load_instructions(graphics)
+load_instructions(graphics, Constants.PRACTICE_INSTRUCTIONS)
 display_practice(graphics)
 
 # TEST PHASE
 data_handlers.set_exp_handler(Constants.PHASE_TEST)
-graphics.set_instruction(Constants.INSTRUC_TEST)
-load_instructions(graphics)
+load_instructions(graphics, Constants.TEST_INSTRUCTIONS)
 display_test(data_handlers, graphics)
 
-graphics.set_instruction(Constants.INSTRUCT_ENDING)
-load_instructions(graphics)
+load_instructions(graphics, Constants.FINAL_INSTRUCTIONS)
 
 core.quit()

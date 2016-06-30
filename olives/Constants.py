@@ -107,12 +107,6 @@ VIS_PRACTICE_LEFT_STIM = 'PRACTICE_LEFT_STIM'
 VIS_PRACTICE_RIGHT_STIM = 'PRACTICE_RIGHT_STIM'
 VIS_QUESTION_MARK = 'QUESTION_MARK'
 
-# Psychopy Instruction Visuals
-INSTRUC_PRACTICE = 'PRACTICE'
-INSTRUC_TRAINING = 'TRAINING'
-INSTRUC_TEST = 'TEST'
-INSTRUCT_ENDING = 'ENDING'
-
 # Dot coordinates for positioning
 DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_HORZ_OFFSET),
             3: (DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET),
@@ -159,3 +153,44 @@ PHASE_PRACTICE = 'PRACTICE'
 PHASE_TRAINING = 'TRAINING'
 PHASE_TEST = 'TEST'
 PHASE_ENDING = 'ENDING'
+
+############################################################
+###                    INSTRUCTIONS                      ###
+############################################################
+TRAINING_INSTRUCT_1 = 'In this experiment you will be introduced to big circles that will change colour. Within ' \
+                      'these circles, there will be smaller circles that will change position.\n\n' \
+                      'Press space to continue'
+TRAINING_INSTRUCT_2 = 'Occasionally, you will see a white square appear on the screen instead of a circle.\n\n' \
+                      'Press space to continue'
+TRAINING_INSTRUCT_3 = 'Press \"x\" every time you see a circle and press \"n\" every time you see a square.\n\n' \
+                      'Press space to START'
+TRAINING_INSTRUCTIONS = [TRAINING_INSTRUCT_1, TRAINING_INSTRUCT_2, TRAINING_INSTRUCT_3]
+
+PRACTICE_INSTRUCT_1 = 'In this phase you will be introduced to 3 images displayed on the left side of the screen, ' \
+                      'followed by 3 on the right side of the screen. Your job is to decide which of the two (left ' \
+                      'or right sequence) best resembles a word.\n\n' \
+                      'Press space to continue'
+
+PRACTICE_INSTRUCT_2 = 'After the left and right images are displayed and a question mark is shown, press \"x\" if ' \
+                      'you think the left sequence better represents a word, or press \"n\" if you think the right ' \
+                      'sequence better represents a word. \n\n' \
+                      'Press space to continue'
+
+PRACTICE_INSTRUCT_3 = 'You will now do a couple practice rounds before starting to get an understanding of the task.' \
+                      '\n\nPress space to START.'
+
+PRACTICE_INSTRUCTIONS = [PRACTICE_INSTRUCT_1, PRACTICE_INSTRUCT_2, PRACTICE_INSTRUCT_3]
+
+TEST_INSTRUCT_1 = 'Great job! \n\n You will now start the actual test.\n\n' \
+                  'Press space to continue'
+
+TEST_INSTRUCT_2 = 'After the left and right images are displayed and a question mark is shown, press \"x\" if ' \
+                  'you think the left sequence better represents a word, or press \"n\" if you think the right ' \
+                  'sequence better represents a word. \n\n' \
+                  'Press space to START'
+
+TEST_INSTRUCTIONS = [TEST_INSTRUCT_1, TEST_INSTRUCT_2]
+
+FINAL_INSTRUCT_1 = 'Thank you for participating the the experiment!'
+
+FINAL_INSTRUCTIONS = [FINAL_INSTRUCT_1]

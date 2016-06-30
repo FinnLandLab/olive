@@ -33,33 +33,13 @@ class Graphics:
                                           lineColor=Constants.SQUARE_LINE_COL)
 
         # Instructions Text
-        self._practice_instructions = visual.TextStim(win=self._win, ori=0, name='practice_instruction_screen',
-                                                      text='PRACTICE INSTRUCTIONS GO HERE',
-                                                      font='Arial',
-                                                      pos=Constants.CENTER_CORD, height=0.1, wrapWidth=None,
-                                                      color='white', colorSpace='rgb', opacity=1,
-                                                      depth=0.0)
 
-        self._main_instructions = visual.TextStim(win=self._win, ori=0, name='instruction_screen',
-                                                  text='MAIN INSTRUCTIONS GO HERE',
-                                                  font='Arial',
-                                                  pos=Constants.CENTER_CORD, height=0.1, wrapWidth=None,
-                                                  color='white', colorSpace='rgb', opacity=1,
-                                                  depth=0.0)
-
-        self._test_instructions = visual.TextStim(win=self._win, ori=0, name='test_instruction_screen',
-                                                  text='TEST INSTRUCTIONS GO HERE',
-                                                  font='Arial',
-                                                  pos=Constants.CENTER_CORD, height=0.1, wrapWidth=None,
-                                                  color='white', colorSpace='rgb', opacity=1,
-                                                  depth=0.0)
-
-        self._ending_instructions = visual.TextStim(win=self._win, ori=0, name='test_instruction_screen',
-                                                    text='ENDING INSTRUCTIONS GO HERE',
-                                                    font='Arial',
-                                                    pos=Constants.CENTER_CORD, height=0.1, wrapWidth=None,
-                                                    color='white', colorSpace='rgb', opacity=1,
-                                                    depth=0.0)
+        self._instruction = visual.TextStim(win=self._win, ori=0, name='instruction_screen',
+                                            text="",
+                                            font='Arial',
+                                            pos=Constants.CENTER_CORD, height=0.15, wrapWidth=None,
+                                            color='white', colorSpace='rgb', opacity=1,
+                                            depth=0.0)
 
         # practice stim texts
         self._practice_left_stim = visual.TextStim(win=self._win, ori=0, name='training_left_stim',
@@ -84,15 +64,6 @@ class Graphics:
                                                      color='white', colorSpace='rgb', opacity=1,
                                                      depth=0.0)
 
-        # Holds last set instruction
-        self._instruction = None
-
-        # Used for quick access to instructions text visual based on current phase
-        self._instructions = {Constants.INSTRUC_PRACTICE: self._practice_instructions,
-                              Constants.INSTRUC_TRAINING: self._main_instructions,
-                              Constants.INSTRUC_TEST: self._test_instructions,
-                              Constants.INSTRUCT_ENDING: self._ending_instructions}
-
         # Used for quick access to visual objects based on type
         self._graphics = {Constants.VIS_CIRCLE: self._circle_visual, Constants.VIS_DOT: self._dot_visual,
                           Constants.VIS_SQUARE: self._square_visual,
@@ -105,10 +76,7 @@ class Graphics:
         Sets the instructions based on the passed in instruction phase
         :param instruction: Instruction phase (Must be one of 'INSTRUCTIONS' from Constants file.
         """
-        if instruction not in Constants.INSTRUCTIONS:
-            raise ValueError('Wrong instruction type passed in. Make sure instruction type is a string in all caps')
-
-        self._instruction = self._instructions[instruction]
+        self._instruction.text = instruction
 
     def get_instruction(self):
         """
