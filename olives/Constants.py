@@ -2,7 +2,7 @@
 NUM_RAND_ORD = 45
 
 # Number of participants (used to creating participant and probability CSV files)
-NUM_OF_PARTICIPANTS = 10
+NUM_OF_PARTICIPANTS = 99
 
 # Used when wanting to find number of rows in a DataFrame
 VALUE = 'participant'
@@ -39,15 +39,15 @@ PRACTICE_RIGHT_STIMS = [['B', 'C', 'A'], ['X', 'Y', 'Z']]
 ESCAPE_KEYS = ['esc', 'escape']
 SKIP_KEYS = ['tab']
 SPACE_KEYS = ['space']
-CIRCLE_KEYS = ['x', 'X']
-SQUARE_KEYS = ['N', 'n']
-LEFT_STIM_KEYS = ['x', 'X']
-RIGHT_STIM_KEYS = ['n', 'N']
-PRACTICE_RESP_KEYS = ['N', 'n', 'X', 'x']
-CIRCLE_KEY = 'x'
-SQUARE_KEY = 'n'
-RIGHT_STIM_KEY = 'n'
-LEFT_STIM_KEY = 'x'
+CIRCLE_KEYS = ['z', 'Z']
+SQUARE_KEYS = ['m', 'M']
+LEFT_STIM_KEYS = ['1', 1]
+RIGHT_STIM_KEYS = ['0', 0]
+PRACTICE_RESP_KEYS = ['1', '0', 1, 0]
+CIRCLE_KEY = 'z'
+SQUARE_KEY = 'm'
+LEFT_STIM_KEY = '1'
+RIGHT_STIM_KEY = '0'
 
 ############################################################
 ###                     DATA COLUMNS                     ###
@@ -157,39 +157,58 @@ PHASE_ENDING = 'ENDING'
 ############################################################
 ###                    INSTRUCTIONS                      ###
 ############################################################
-TRAINING_INSTRUCT_1 = 'In this experiment you will be introduced to big circles that will change colour. Within ' \
-                      'these circles, there will be smaller circles that will change position.\n\n' \
+
+TRAINING_INSTRUCT_1 = 'In this experiment you will see a series of images. These will be either blank squares or' \
+                      ' colored circles with smaller circles inside. If you see a square press \'z\' and if you see a' \
+                      ' circle press \'m\'\n\nPress space to continue'
+
+TRAINING_INSTRUCT_2 = 'There will be many more circles than squares. The experiment will last about 6 minutes. ' \
+                      'Please do your best to press the correct button as quickly as possible.\n\n' \
                       'Press space to continue'
-TRAINING_INSTRUCT_2 = 'Occasionally, you will see a white square appear on the screen instead of a circle.\n\n' \
-                      'Press space to continue'
-TRAINING_INSTRUCT_3 = 'Press \"x\" every time you see a circle and press \"n\" every time you see a square.\n\n' \
-                      'Press space to START'
+
+TRAINING_INSTRUCT_3 = 'Press space when you are ready'
+
 TRAINING_INSTRUCTIONS = [TRAINING_INSTRUCT_1, TRAINING_INSTRUCT_2, TRAINING_INSTRUCT_3]
 
-PRACTICE_INSTRUCT_1 = 'In this phase you will be introduced to 3 images displayed on the left side of the screen, ' \
-                      'followed by 3 on the right side of the screen. Your job is to decide which of the two (left ' \
-                      'or right sequence) best resembles a word.\n\n' \
-                      'Press space to continue'
+PRACTICE_INSTRUCT_1 = 'Great job!\n\nNow we have a few short questions about the circles.\n\nPress space to continue'
 
-PRACTICE_INSTRUCT_2 = 'After the left and right images are displayed and a question mark is shown, press \"x\" if ' \
-                      'you think the left sequence better represents a word, or press \"n\" if you think the right ' \
-                      'sequence better represents a word. \n\n' \
-                      'Press space to continue'
+PRACTICE_INSTRUCT_2 = 'In this next phase, you will see three circles presented in succession on the left side, these' \
+                      ' will disappear and then three circles will be presented in on the right side and then ' \
+                      'disappear.\n\nPress space to continue'
 
-PRACTICE_INSTRUCT_3 = 'You will now do a couple practice rounds before starting to get an understanding of the task.' \
-                      '\n\nPress space to START.'
+PRACTICE_INSTRUCT_3 = 'Please choose which set of circles - the ones presented on the left or the right - are more ' \
+                      'likely to belong in the sequence of circles that you were just exposed to.' \
+                      '\n\nPress space to continue'
 
-PRACTICE_INSTRUCTIONS = [PRACTICE_INSTRUCT_1, PRACTICE_INSTRUCT_2, PRACTICE_INSTRUCT_3]
+PRACTICE_INSTRUCT_4 = 'You might not feel like you know the answer to this, but just take your best guess. \n' \
+                      'Press 1 if you think the set on the left is more likely to belong and 0 if you think the set ' \
+                      'on the right is more likely to belong.\n\nPress space to continue'
 
-TEST_INSTRUCT_1 = 'Great job! \n\n You will now start the actual test.\n\n' \
-                  'Press space to continue'
+PRACTICE_INSTRUCT_5 = 'Before we do circles, lets quickly practice with letters. Which of the sets of letters fits' \
+                      ' better in the alphabet?\n\nPress space to continue'
 
-TEST_INSTRUCT_2 = 'After the left and right images are displayed and a question mark is shown, press \"x\" if ' \
-                  'you think the left sequence better represents a word, or press \"n\" if you think the right ' \
-                  'sequence better represents a word. \n\n' \
-                  'Press space to START'
+PRACTICE_INSTRUCT_6 = 'Press 1 if you think the set on the left and 0 if you think it\'s the one on the right. Once ' \
+                      'you select, the experiment will automatically forward to the next question.\n\nPress space to ' \
+                      'continue'
 
-TEST_INSTRUCTIONS = [TEST_INSTRUCT_1, TEST_INSTRUCT_2]
+PRACTICE_INSTRUCT_7 = 'Ready?\n\nPress space to start practice.'
+
+PRACTICE_INSTRUCTIONS = [PRACTICE_INSTRUCT_1, PRACTICE_INSTRUCT_2, PRACTICE_INSTRUCT_3, PRACTICE_INSTRUCT_4,
+                         PRACTICE_INSTRUCT_5, PRACTICE_INSTRUCT_6, PRACTICE_INSTRUCT_7]
+
+TEST_INSTRUCT_1 = 'Now lets do circles.  Please choose which set of circles - the ones presented on the left or the ' \
+                  'right - are more likely to belong in the sequence of circles that you were just exposed to.' \
+                  '\n\nPress space to continue'
+
+TEST_INSTRUCT_2 = 'Press 1 if you think the set on the left is more likely to belong and 0 if you think the set on ' \
+                  'the right is more likely to belong.\n\nPress space to continue'
+
+TEST_INSTRUCT_3 = 'Once you select, the experiment will automatically forward to the next question.' \
+                  '\n\nPress space to continue'
+
+TEST_INSTRUCT_4 = 'Ready?\n\nPress space to start. This will take about 5 minutes.'
+
+TEST_INSTRUCTIONS = [TEST_INSTRUCT_1, TEST_INSTRUCT_2, TEST_INSTRUCT_3, TEST_INSTRUCT_4]
 
 FINAL_INSTRUCT_1 = 'Thank you for participating the the experiment!'
 
