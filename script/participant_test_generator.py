@@ -50,5 +50,5 @@ def generate_test_trip_ordering_csv(participant):
 
 
 if __name__ == '__main__':
-    for i in range(1, Constants.NUM_OF_PARTICIPANTS + 1):
+    for i in range(100, Constants.NUM_OF_PARTICIPANTS + 101):
         generate_test_trip_ordering_csv(i)

@@ -55,7 +55,7 @@ RIGHT_STIM_KEY = '0'
 DATA_OUTPUT_COL = 'response'
 DATA_OUTPUT_RESP_COL = 'response_time'
 TEST_OUTPUT_COL = 'stim_response'  # Used for direction (left stim or right stim)
-TEST_STIM_RESP = {LEFT_STIM_KEY: 'left', RIGHT_STIM_KEY: 'right'}
+TEST_STIM_RESP = {LEFT_STIM_KEY: 'Left', RIGHT_STIM_KEY: 'Right'}
 DOT_COL = 'dot_values'
 COLOUR_COL = 'colour_values'
 TEST_CORRECT_COL = 'correct'
@@ -173,8 +173,8 @@ TRAINING_INSTRUCTIONS = [TRAINING_INSTRUCT_1, TRAINING_INSTRUCT_2, TRAINING_INST
 PRACTICE_INSTRUCT_1 = 'Great job!\n\nNow we have a few short questions about the circles.\n\nPress space to continue'
 
 PRACTICE_INSTRUCT_2 = 'In this next phase, you will see three circles presented in succession on the left side, these' \
-                      ' will disappear and then three circles will be presented in on the right side and then ' \
-                      'disappear.\n\nPress space to continue'
+                      ' will disappear and then three circles will be presented in succession on the right side and ' \
+                      'then disappear.\n\nPress space to continue'
 
 PRACTICE_INSTRUCT_3 = 'Please choose which set of circles - the ones presented on the left or the right - are more ' \
                       'likely to belong in the sequence of circles that you were just exposed to.' \
@@ -206,10 +206,10 @@ TEST_INSTRUCT_2 = 'Press 1 if you think the set on the left is more likely to be
 TEST_INSTRUCT_3 = 'Once you select, the experiment will automatically forward to the next question.' \
                   '\n\nPress space to continue'
 
-TEST_INSTRUCT_4 = 'Ready?\n\nPress space to start. This will take about 5 minutes.'
+TEST_INSTRUCT_4 = 'Ready?\n\nPress space to start. This will take about 3 minutes.'
 
 TEST_INSTRUCTIONS = [TEST_INSTRUCT_1, TEST_INSTRUCT_2, TEST_INSTRUCT_3, TEST_INSTRUCT_4]
 
-FINAL_INSTRUCT_1 = 'Thank you for participating the the experiment!'
+FINAL_INSTRUCT_1 = 'Thank you for participating the experiment!'
 
 FINAL_INSTRUCTIONS = [FINAL_INSTRUCT_1]
