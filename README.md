@@ -3,14 +3,14 @@
 ## Launch Experiment
 
 1. Install Psychopy: http://www.psychopy.org
-2. Launch Main.py (located in Olives directory) using a version of Python with Psychopy installed. (Psychopy comes with python with all the required libraries already installed)
+2. Launch Main.py (located in olives directory) using a version of Python with Psychopy installed. (Psychopy comes with python with all the required libraries already installed)
 
 ## General Information
 
 - Number of triplet orderings:                                  45
 - Number of participants:                                       100
 - Number of training trials (excluding Square trials):          405
-- Number of Test trials (2 triplets = 1 trial):					33
+- Number of Test trials (2 triplets = 1 trial):                 33
 - Training block duration (minutes):                            5
 - Testing block duration (minutes):                             3
 - Probability of Square during training block:                  10%
@@ -27,7 +27,7 @@
 
 ## Files & Directories
 
-- Olives: Holds experiment files
+- olives: Holds experiment files
 	- Constants.py: Constant values for experiment
 	- DataHandlers.py: Handlers used for trial sequencing and data storage
 	- Graphics.py: Graphics objects
@@ -36,16 +36,15 @@
 	- Practice.py: Practice block
 	- Test.py: Test block
 	- Training.py: Training block
-	- __init__.py: Required to make Python treat the directories as containing packages (DO NOT DELETE)
-	
-- Participants: Holds participant files (Test, Training, Test probability, Training probability)
+
+- participants: Holds participant files (Test, Training, Test probability, Training probability)
 	- [Folders labeled 100 to 200]
-		- participant_#_probability.csv: Overall probability of given dot being matched with a given colour
-		- participant_#_test.csv: Participant file for test block
-		- participant_#_test_probability.csv: Overall count of correct stim being on left and right
-		- participant_#_training.csv: Participant files for training block
+		- participant_###_probability.csv: Overall probability of given dot being matched with a given colour
+		- participant_###_test.csv: Participant file for test block
+		- participant_###_test_probability.csv: Overall count of correct stim being on left and right
+		- participant_###_training.csv: Participant files for training block
 		
-- Script:
+- script:
 	- participant_test_generator.py: Generates participant test files [100 - 200]
 	- participant_training_generator.py: Generates participant training files [100 - 200]
 	- trip_prob.py: Generates the participant training and test probability files [100 - 200]
