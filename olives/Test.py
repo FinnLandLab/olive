@@ -28,6 +28,10 @@ def display_test(data_handlers, graphics):
     for row in data_handlers.get_current_table():
         for i in range(2):  # Left stim then right stim
             for stim in range(3):  # Go through each triplet
+                
+                if row[test_stim[i][test_dict['colour']][stim]] is None or str(row[test_stim[i][test_dict['colour']][stim]]) == 'nan' or \
+                    row[test_stim[i][test_dict['dot']][stim]] is None or str(row[test_stim[i][test_dict['dot']][stim]]) == 'nan':
+                    continue
 
                 # Set the colour and coordinates for circle and dots for the given stim
                 graphics.set_colour(Constants.VIS_CIRCLE, row[test_stim[i][test_dict['colour']][stim]])
