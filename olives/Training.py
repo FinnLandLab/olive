@@ -22,9 +22,8 @@ def display_training(data_handlers, graphics):
 
         # Check if the dot and colour column are empty.
         # If both are empty, then a Square will be drawn instead of circle/dots
-        dot_cols_empty = str(row[Constants.DOT_COL]) == 'nan'
-        colour_cols_empty = str(row[Constants.COLOUR_COL]) == 'nan'
-
+        dot_cols_empty = str(row[Constants.DOT_COL]) == 'nan' or row[Constants.DOT_COL] is None       
+        colour_cols_empty = str(row[Constants.COLOUR_COL]) == 'nan' or row[Constants.COLOUR_COL] is None
         # Set the colours for the circle.
         graphics.set_colour(Constants.VIS_CIRCLE, row[Constants.COLOUR_COL])
         graphics.set_line_colour(Constants.VIS_CIRCLE, row[Constants.COLOUR_COL])
