@@ -1,0 +1,8 @@
+stim1_dots1,stim1_dots2,stim1_dots3,stim1_color1,stim1_color2,stim1_color3,stim2_dots1,stim2_dots2,stim2_dots3,stim2_color1,stim2_color2,stim2_color3,comparison,test,correct,participant
+9,2,4,orange,green,yellow,1,7,3,orange,green,yellow,3,dots,Left,100
+3,,,green,,,1,,,yellow,,,32,dot_single,Right,100
+7,,,yellow,,,1,,,yellow,,,33,color_single,Right,100
+1,,,yellow,,,2,,,yellow,,,33,color_single,Left,100
+1,,,pink,,,4,,,pink,,,34,color_single,Left,100
+4,,,red,,,1,,,red,,,34,color_single,Right,100
+6,,,green,,,1,,,green,,,35,color_single,Right,100
