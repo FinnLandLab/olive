@@ -92,7 +92,7 @@ class Graphics:
         :param colour: The fill colour.
         """
         _graphics_check(graphic)
-        if (colour == 'LightPink'):
+        if (colour == 'LightPink' or colour == 'pink'):
             self._graphics[graphic].fillColor = 'LightBlue'
         else:
             self._graphics[graphic].fillColor = colour
@@ -103,7 +103,7 @@ class Graphics:
         :param graphic: String that represents the given visual. Must be value from 'GRAPHICS' in Constants file.
         :param colour: The line colour.
         """
-        if (colour == 'LightPink'):
+        if (colour == 'LightPink' or colour == 'pink'):
             self._graphics[graphic].lineColor = 'LightBlue'
         else:
             self._graphics[graphic].lineColor = colour
