@@ -28,16 +28,18 @@ def display_test(data_handlers, graphics):
     for row in data_handlers.get_current_table():
         for i in range(2):  # Left stim then right stim
             for stim in range(3):  # Go through each triplet
-                
-                if row[test_stim[i][test_dict['colour']][stim]] is None or str(row[test_stim[i][test_dict['colour']][stim]]) == 'nan' or \
-                    row[test_stim[i][test_dict['dot']][stim]] is None or str(row[test_stim[i][test_dict['dot']][stim]]) == 'nan':
+
+                if row[test_stim[i][test_dict['colour']][stim]] is None or str(
+                        row[test_stim[i][test_dict['colour']][stim]]) in ('nan', 'na') or \
+                                row[test_stim[i][test_dict['dot']][stim]] is None or str(
+                    row[test_stim[i][test_dict['dot']][stim]]) in ('nan', 'na'):
                     continue
 
                 # Set the colour and coordinates for circle and dots for the given stim
                 graphics.set_colour(Constants.VIS_CIRCLE, row[test_stim[i][test_dict['colour']][stim]])
                 graphics.set_line_colour(Constants.VIS_CIRCLE, row[test_stim[i][test_dict['colour']][stim]])
                 graphics.set_pos(Constants.VIS_DOT,
-                                 test_stim_pos[i][test_dict['dot']][row[test_stim[i][test_dict['dot']][stim]]])
+                                 test_stim_pos[i][test_dict['dot']][int(row[test_stim[i][test_dict['dot']][stim]])])
                 graphics.set_pos(Constants.VIS_CIRCLE, test_stim_pos[i][test_dict['colour']])
 
                 # Draw the circle and dot

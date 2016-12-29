@@ -33,10 +33,16 @@ class DataHandlers:
         self._participant_test_filename = '%s/%s/%s_test_%s' % (
             Constants.DATA_PATH, self._expInfo['participant'], self._expInfo['participant'], self._expInfo['date'])
 
+        self._participant_rt_filename = '%s/%s/%s_rt_%s' % (
+            Constants.DATA_PATH, self._expInfo['participant'], self._expInfo['participant'], self._expInfo['date'])
+
         self._test_filename = Constants.PARTICIPANT_TEST_FILE_PATH % (
             int(self._expInfo['participant']), int(self._expInfo['participant']))
 
-        self._training_filename = Constants.PARTICIPANT_FILE_PATH % (
+        self._training_filename = Constants.PARTICIPANT_TRAINING_FILE_PATH % (
+            int(self._expInfo['participant']), int(self._expInfo['participant']))
+
+        self._rt_filename = Constants.PARTICIPANT_REACTION_TIME_FILE_PATH % (
             int(self._expInfo['participant']), int(self._expInfo['participant']))
 
         # Additional information which will get included in the output files.
@@ -56,13 +62,18 @@ class DataHandlers:
                                              extraInfo=None, trialList=data.importConditions(self._test_filename),
                                              seed=None, name='')
 
+        self._rt_table = data.TrialHandler(nReps=1, method='sequential',
+                                           extraInfo=None, trialList=data.importConditions(self._rt_filename),
+                                           seed=None, name='')
+
         # Used for quick access to needed variables based on current phase
         self._data_file_names = {Constants.PHASE_PRACTICE: None,
                                  Constants.PHASE_TRAINING: self._participant_training_filename,
-                                 Constants.PHASE_TEST: self._participant_test_filename}
+                                 Constants.PHASE_TEST: self._participant_test_filename,
+                                 Constants.PHASE_REACTION_TIME: self._participant_rt_filename}
 
         self._data_tables = {Constants.PHASE_PRACTICE: None, Constants.PHASE_TRAINING: self._training_table,
-                             Constants.PHASE_TEST: self._test_table}
+                             Constants.PHASE_TEST: self._test_table, Constants.PHASE_REACTION_TIME: self._rt_table}
 
     def set_exp_handler(self, block):
         """

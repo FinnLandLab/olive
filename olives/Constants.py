@@ -1,5 +1,11 @@
 # Number of random orderings created
-NUM_RAND_ORD = 45
+NUM_RAND_ORD_TRAINING = 45
+
+# Number of random orderings for Reaction Time
+NUM_RAND_ORD_RT = 3
+
+# Number of Reaction Time Test (Dot or Colour)
+NUM_RT_TEST = 9
 
 # Number of participants (used to creating participant and probability CSV files)
 NUM_OF_PARTICIPANTS = 99
@@ -17,13 +23,16 @@ MAX_PROB = 0.6
 MAX_TEST_PROB = 0.75
 
 # Number of test items for both colours and dots during the test phase.
-NUM_OF_COLOUR_DOT_TEST_COMP = 24
+NUM_OF_COLOUR_DOT_TEST_COMP = 48
 
 ############################################################
 ###                    TRIPLET VALUES                    ###
 ############################################################
 DOT_TRIPS = [[1, 8, 6], [9, 2, 4], [5, 7, 3]]
 COLOUR_TRIPS = [['Blue', 'Red', 'Green'], ['Yellow', 'LightPink', 'Brown'], ['Purple', 'Orange', 'DarkGray']]
+
+DOT_POSITIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+CIRCLE_COLOURS = ['Blue', 'Red', 'Green', 'Yellow', 'LightPink', 'Brown', 'Purple', 'Orange', 'DarkGray']
 
 # Index of colour in 'INDEX_AND_COL_TRIP' array
 COLOUR_INDEX = 0
@@ -58,6 +67,10 @@ TEST_OUTPUT_COL = 'stim_response'  # Used for direction (left stim or right stim
 TEST_STIM_RESP = {LEFT_STIM_KEY: 'Left', RIGHT_STIM_KEY: 'Right'}
 DOT_COL = 'dot_values'
 COLOUR_COL = 'colour_values'
+RT_STIM_OUTPUT_COL = 'rt_stim'
+STIM_TYPE_OUTPUT_COL = 'stim_type'
+DOT_STIM = 'dot'
+CIRCLE_STIM = 'circle'
 TEST_CORRECT_COL = 'correct'
 INDEX_AND_COL_TRIP = [DOT_COL, COLOUR_COL]
 TEST_LEFT_COL_NAMES = ['stim1_dots1', 'stim1_dots2', 'stim1_dots3', 'stim1_color1', 'stim1_color2', 'stim1_color3']
@@ -80,9 +93,9 @@ WIN_SIZE = (1000, 500)  # (1920, 1080)
 WIN_FULL_SCREEN = True  # True
 
 # Values for graphics variables
-BLOCKS = ['PRACTICE', 'TRAINING', 'TEST']
+BLOCKS = ['PRACTICE', 'TRAINING', 'TEST', 'RT']
 INSTRUCTIONS = ['PRACTICE', 'TRAINING', 'TEST', 'ENDING']
-GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', 'PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM', 'QUESTION_MARK']
+GRAPHICS = ['CIRCLE', 'DOT', 'SQUARE', 'PRACTICE_LEFT_STIM', 'PRACTICE_RIGHT_STIM', 'QUESTION_MARK', 'RT_INSTRUCT']
 
 # Shapes
 DOT_CORD_VERT_OFFSET = 2.5
@@ -97,6 +110,7 @@ SQUARE_WIDTH = 0.4
 SQUARE_HEIGHT = 0.8
 SQUARE_LINE_COL = 'white'
 SQUARE_FILL_COL = 'white'
+DOT_RT_INSTRUCT_CIRCLE_COL = 'white'
 CENTER_CORD = [0, 0]
 
 # Psychopy Visuals
@@ -106,6 +120,7 @@ VIS_SQUARE = 'SQUARE'
 VIS_PRACTICE_LEFT_STIM = 'PRACTICE_LEFT_STIM'
 VIS_PRACTICE_RIGHT_STIM = 'PRACTICE_RIGHT_STIM'
 VIS_QUESTION_MARK = 'QUESTION_MARK'
+VIS_RT_INSTRUCT = 'RT_INSTRUCT'
 
 # Dot coordinates for positioning
 DOT_CORD = {1: (-DOT_CORD_VERT_OFFSET, -DOT_CORD_VERT_OFFSET), 2: (0, -DOT_CORD_HORZ_OFFSET),
@@ -141,7 +156,9 @@ PARTICIPANT_PATH = '../participants'
 PARTICIPANT_PROBABILITY_FILE_PATH = '../participants/%d/participant_%d_probability.csv'
 PARTICIPANT_TEST_PROBABILITY_FILE_PATH = '../participants/%d/participant_%d_test_probability.csv'
 PARTICIPANT_TEST_FILE_PATH = '../participants/%d/participant_%d_test.csv'
-PARTICIPANT_FILE_PATH = '../participants/%d/participant_%d_training.csv'
+PARTICIPANT_TRAINING_FILE_PATH = '../participants/%d/participant_%d_training.csv'
+PARTICIPANT_REACTION_TIME_FILE_PATH = '../participants/%d/participant_%d_rt.csv'
+PARTICIPANT_COLOURS_REACTION_TIME_FILE_PATH = '../participants/%d/participant_%d_colours_rt.csv'
 PARTICIPANT_FOLDER_PATH = '../participants/%d'
 DATA_PATH = '../data'
 TEST_FILE_PATH = '../test_items.csv'
@@ -153,6 +170,7 @@ PHASE_PRACTICE = 'PRACTICE'
 PHASE_TRAINING = 'TRAINING'
 PHASE_TEST = 'TEST'
 PHASE_ENDING = 'ENDING'
+PHASE_REACTION_TIME = 'RT'
 
 ############################################################
 ###                    INSTRUCTIONS                      ###
@@ -213,3 +231,17 @@ TEST_INSTRUCTIONS = [TEST_INSTRUCT_1, TEST_INSTRUCT_2, TEST_INSTRUCT_3, TEST_INS
 FINAL_INSTRUCT_1 = 'Thank you for participating the experiment!'
 
 FINAL_INSTRUCTIONS = [FINAL_INSTRUCT_1]
+
+RT_INSTRUCT_1 = 'Now you will see more flashing shapes and you will be asked to press space when you see a certain ' \
+                'color or a dot in a particular location in each circle.\n\nPress space to continue.'
+
+RT_INSTRUCT_2 = 'The shapes will keep flashing after you press space.\nPlease press space EACH time you see the ' \
+                'specified dot or color.\n\nPress space to continue.'
+
+RT_INSTRUCTIONS = [RT_INSTRUCT_1, RT_INSTRUCT_2]
+
+RT_INSTRUCT_CIRCLE = 'Now, please press the SPACE BAR each time you see a circle with this colour:\n\n\n\n\n\n\n\n\n' \
+                     'Press SPACE when you are ready.'
+
+RT_INSTRUCT_DOT = 'Now, please press the SPACE BAR each time you see a dot here: \nFor Example:' \
+                  ' \n\n\n\n\n\n\n\n\n Press SPACE when you are ready.'

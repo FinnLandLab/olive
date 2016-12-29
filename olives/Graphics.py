@@ -41,6 +41,13 @@ class Graphics:
                                             color='white', colorSpace='rgb', opacity=1,
                                             depth=0.0)
 
+        self._image_instruction = visual.ImageStim(win=self._win, mask=None,
+                                                   ori=0, pos=[0, 0], size=[2, 2],
+                                                   color=[1, 1, 1], colorSpace='rgb', opacity=1,
+                                                   flipHoriz=False, flipVert=False,
+                                                   texRes=128, interpolate=True, depth=-1.0)
+        # self._image_instruction.size *= 2.5
+
         # practice stim texts
         self._practice_left_stim = visual.TextStim(win=self._win, ori=0, name='training_left_stim',
                                                    text='A',
@@ -64,12 +71,20 @@ class Graphics:
                                                      color='white', colorSpace='rgb', opacity=1,
                                                      depth=0.0)
 
+        self._rt_text = visual.TextStim(win=self._win, ori=0, name="_rt_text",
+                                        text='Now, please press the SPACE BAR each time you see a dot in the center of'
+                                             ' a circle. \nFor Example: \n\n\n\n\n\n\n\n\n Press SPACE when you '
+                                             'are ready.',
+                                        pos=(0, 0), height=0.1, wrapWidth=None, color='white', colorSpace='rgb',
+                                        opacity=1, depth=-2.0)
+
         # Used for quick access to visual objects based on type
         self._graphics = {Constants.VIS_CIRCLE: self._circle_visual, Constants.VIS_DOT: self._dot_visual,
                           Constants.VIS_SQUARE: self._square_visual,
                           Constants.VIS_PRACTICE_LEFT_STIM: self._practice_left_stim,
                           Constants.VIS_PRACTICE_RIGHT_STIM: self._practice_right_stim,
-                          Constants.VIS_QUESTION_MARK: self._question_mark_visual}
+                          Constants.VIS_QUESTION_MARK: self._question_mark_visual,
+                          Constants.VIS_RT_INSTRUCT: self._rt_text}
 
     def set_instruction(self, instruction):
         """
@@ -78,12 +93,26 @@ class Graphics:
         """
         self._instruction.text = instruction
 
+    def set_image_instruction(self, instruction):
+        """
+        Sets the instruction image based on the passed in instruction image
+        :param instruction: Instruction image
+        """
+        self._image_instruction.setImage(instruction)
+
     def get_instruction(self):
         """
         Gets the last set instruction
         :return: last instruction TextStim
         """
         return self._instruction
+
+    def get_image_instruction(self):
+        """
+        Gets the last set image instruction
+        :return: last image instruction ImageStim
+        """
+        return self._image_instruction
 
     def set_colour(self, graphic, colour):
         """
@@ -92,7 +121,7 @@ class Graphics:
         :param colour: The fill colour.
         """
         _graphics_check(graphic)
-        if (colour == 'LightPink' or colour == 'pink'):
+        if colour == 'LightPink' or colour == 'pink':
             self._graphics[graphic].fillColor = 'LightBlue'
         else:
             self._graphics[graphic].fillColor = colour
@@ -103,7 +132,7 @@ class Graphics:
         :param graphic: String that represents the given visual. Must be value from 'GRAPHICS' in Constants file.
         :param colour: The line colour.
         """
-        if (colour == 'LightPink' or colour == 'pink'):
+        if colour == 'LightPink' or colour == 'pink':
             self._graphics[graphic].lineColor = 'LightBlue'
         else:
             self._graphics[graphic].lineColor = colour
